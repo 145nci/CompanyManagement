@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+
+	ServerAdmin admin@company-management.com
+	ServerName company-management.com
+	ServerAlias www.company-management.com
+	DocumentRoot /var/www/html/CompanyManagement
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+<Directory "/var/www/html/CompanyManagement">
+    AllowOverride All
+</Directory>
+
+
