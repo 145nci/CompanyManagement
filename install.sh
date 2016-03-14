@@ -30,10 +30,10 @@ php composer.phar update
 
 sudo chmod -R 777 $DIR
 
-a2enmod rewrite
+sudo a2enmod rewrite
 sudo cp $DIR/.company-management.com.conf_dev /etc/apache2/sites-available/company-management.com.conf
-sudo cp $DIR/.hosts_dev /etc/hosts
-a2ensite company-management.com.conf
+sudo printf "127.0.0.1       $(hostname)\n127.0.0.1  localhost\n127.0.0.1       company-management.com\n::1     ip6-localhost ip6-loopback\nfe00::0 ip6-localnet\nff00::0 ip6-mcastprefix\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters" > /etc/hosts
+sudo a2ensite company-management.com.conf
 
 sudo service apache2 restart
 
