@@ -1,0 +1,3 @@
+company_management_homepage:
+    path:     /
+    defaults: { _controller: CompanyManagementBundle:Default:index }
