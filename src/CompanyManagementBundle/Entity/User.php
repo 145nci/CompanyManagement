@@ -98,6 +98,32 @@ class User
     protected $company;
 
     /**
+     * @var
+     *
+     * @ORM\OneToMany(targetEntity="WorkTimeLog", mappedBy="user")
+     */
+    protected $workTimeLogs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Department", inversedBy="users")
+     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
+     */
+    protected $department;
+
+    /**
+     * @var
+     *
+     * @ORM\OneToOne(targetEntity="Department", inversedBy="boss")
+     */
+    protected $managedDepartment;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Role", inversedBy="users")
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="id")
+     */
+    protected $role;
+
+    /**
      * Get id
      *
      * @return int
