@@ -1,3 +1,7 @@
+company_management_company:
+    resource: "@CompanyManagementBundle/Resources/config/routing/company.yml"
+    prefix:   /company
+
 company_management_homepage:
     path:     /
     defaults: { _controller: CompanyManagementBundle:Default:index }
