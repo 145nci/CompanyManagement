@@ -205,6 +205,6 @@ class Role
     }
 
     public function __toString(){
-        return $this->title;
+        return $this->name;
     }
 }

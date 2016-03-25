@@ -1,15 +1,27 @@
+company_management_homepage:
+    path:     /
+    defaults: { _controller: CompanyManagementBundle:Default:index }
+
+company_management_acl:
+    resource: "@CompanyManagementBundle/Resources/config/routing/acl.yml"
+    prefix:   /acl
+
 company_management_company:
     resource: "@CompanyManagementBundle/Resources/config/routing/company.yml"
     prefix:   /company
 
-company_management_user:
-    resource: "@CompanyManagementBundle/Resources/config/routing/user.yml"
-    prefix:   /user
+company_management_department:
+    resource: "@CompanyManagementBundle/Resources/config/routing/department.yml"
+    prefix:   /department
 
 company_management_role:
     resource: "@CompanyManagementBundle/Resources/config/routing/role.yml"
     prefix:   /role
 
-company_management_homepage:
-    path:     /
-    defaults: { _controller: CompanyManagementBundle:Default:index }
+company_management_user:
+    resource: "@CompanyManagementBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+company_management_worktimelog:
+    resource: "@CompanyManagementBundle/Resources/config/routing/worktimelog.yml"
+    prefix:   /worktimelog

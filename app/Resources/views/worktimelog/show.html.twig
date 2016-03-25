@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>WorkTimeLog</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ workTimeLog.id }}</td>
+            </tr>
+            <tr>
+                <th>Datestart</th>
+                <td>{% if workTimeLog.dateStart %}{{ workTimeLog.dateStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateend</th>
+                <td>{% if workTimeLog.dateEnd %}{{ workTimeLog.dateEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('worktimelog_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('worktimelog_edit', { 'id': workTimeLog.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -173,4 +173,8 @@ class Department
     {
         return $this->boss;
     }
+
+    public function __toString(){
+        return $this->name;
+    }
 }
