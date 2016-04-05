@@ -15,27 +15,32 @@ class UserTest extends WebTestCase {
      */
     private $_em;
 
-    private $department;
-
     protected function setUp() {
 
         $kernel = static::createKernel();
         $kernel->boot();
         $this->_em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
-
-        $this->department = new \CompanyManagementBundle\Entity\Department();
-        $this->department->setDescription('');
     }
 
     public function testCreateUser() {
 
         $user = new \CompanyManagementBundle\Entity\User();
 
+        $department = new \CompanyManagementBundle\Entity\Department();
+        $department->setDescription('dsfjbgfsduy');
+        $department->setBoss($user);
+        $department->setName('ssadasfasf');
+
+        $company = new \CompanyManagementBundle\Entity\Company();
+        $company->setName('sadsadd');
+        $company->setDescription('asdfsa');
+        $company->setCity('sfdiufdsgyuyfdsg');
+
         $user->setAddress("llelelelel");
         $user->setCity('sasdihasuf');
         $user->setCompany('dsadfsfd');
-        $user->setDateAdded(new \Symfony\Component\Validator\Constraints\DateTime());
-        $user->setDepartment();
+        $user->setDateAdded(new \DateTime());
+        $user->setDepartment($department);
 
         $this->_em->persist($user);
         $this->_em->flush();
