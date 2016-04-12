@@ -16,17 +16,13 @@ class CompanyControllerTest extends \Symfony\Bundle\FrameworkBundle\Test\WebTest
             $client->getContainer()->get('router')->generate('company_index', array(), \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL)
         );
 
-        $regexpGen = $client->getContainer()->get('regexp_generator');
-
-        $expression = $regexpGen->matchingAll(
-            array('name', 'email', 'city', 'zipcode', 'telephone', 'fax', 'nip', 'email', 'description')
-        );
-
         $text = $crawler->text();
 
-        $this->assertGreaterThan(0, preg_match(
-            $expression,
-            $text)
-        );
+        $regexpService = $client->getContainer()->get('regexp');
+
+        $this->assertTrue($regexpService->matchAll(
+            array('name', 'email', 'city', 'zipcode', 'telephone', 'fax', 'nip', 'email', 'description'),
+            $text
+        ));
     }
 }

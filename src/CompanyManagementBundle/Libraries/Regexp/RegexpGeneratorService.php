@@ -1,6 +1,6 @@
 <?php
 
-namespace CompanyManagementBundle\Libraries;
+namespace CompanyManagementBundle\Libraries\Regexp;
 
 class RegexpGeneratorService {
 
