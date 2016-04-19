@@ -1,55 +1,32 @@
 <?php
 
-namespace CompanyManagementBundle\Tests\Controller;
+/**
+ * Created by PhpStorm.
+ * User: setzo
+ * Date: 11.04.16
+ * Time: 18:49
+ */
+class UserControllerTest extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase {
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+    public function testLoginAction() {
 
-class UserControllerTest extends WebTestCase
-{
-    /*
-    public function testCompleteScenario()
-    {
-        // Create a new client to browse the application
         $client = static::createClient();
 
-        // Create a new entry in the database
-        $crawler = $client->request('GET', '/user/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /user/");
-        $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
+        $crawler = $client->request('GET',
+            $client->getContainer()->get('router')->generate('login', array(), \Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_URL)
+        );
 
-        // Fill in the form and submit it
-        $form = $crawler->selectButton('Create')->form(array(
-            'companymanagementbundle_user[field_name]'  => 'Test',
-            // ... other fields to fill
-        ));
+        $regexpGen = $client->getContainer()->get('regexp_generator');
 
-        $client->submit($form);
-        $crawler = $client->followRedirect();
+        $expression = $regexpGen->matchingAll(
+            array('login', 'username', 'password')
+        );
 
-        // Check data in the show view
-        $this->assertGreaterThan(0, $crawler->filter('td:contains("Test")')->count(), 'Missing element td:contains("Test")');
+        $text = $crawler->text();
 
-        // Edit the entity
-        $crawler = $client->click($crawler->selectLink('Edit')->link());
-
-        $form = $crawler->selectButton('Update')->form(array(
-            'companymanagementbundle_user[field_name]'  => 'Foo',
-            // ... other fields to fill
-        ));
-
-        $client->submit($form);
-        $crawler = $client->followRedirect();
-
-        // Check the element contains an attribute with value equals "Foo"
-        $this->assertGreaterThan(0, $crawler->filter('[value="Foo"]')->count(), 'Missing element [value="Foo"]');
-
-        // Delete the entity
-        $client->submit($crawler->selectButton('Delete')->form());
-        $crawler = $client->followRedirect();
-
-        // Check the entity has been delete on the list
-        $this->assertNotRegExp('/Foo/', $client->getResponse()->getContent());
+        $this->assertGreaterThan(0, preg_match(
+                $expression,
+                $text)
+        );
     }
-
-    */
 }
