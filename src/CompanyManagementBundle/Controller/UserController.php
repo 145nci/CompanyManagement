@@ -29,6 +29,18 @@ class UserController extends Controller
         ));
     }
 
+    public function listAction() {
+
+        $em = $this->getDoctrine()->getManager();
+
+        //TODO - role pracownik.
+        $users = $em->getRepository('CompanyManagementBundle:User')->findAll();
+
+        return $this->render('user/list.html.twig', array(
+            'users' => $users,
+        ));
+    }
+
     /**
      * Creates a new User entity.
      *
