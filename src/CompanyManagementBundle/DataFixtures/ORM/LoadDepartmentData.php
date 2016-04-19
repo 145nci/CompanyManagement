@@ -22,9 +22,9 @@ class LoadDepartmentData extends AbstractFixture implements OrderedFixtureInterf
         $department = new Department();
         $department->setName('department');
         $department->setDescription('description');
-        $department->setBoss('boss');
-       
-        $this->addReference('department_1');
+//        $department->setBoss($this->getReference('user_1'));
+
+        $this->addReference('department_1', $department);
 
         $manager->persist($department);
         $manager->flush();
@@ -37,6 +37,6 @@ class LoadDepartmentData extends AbstractFixture implements OrderedFixtureInterf
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }

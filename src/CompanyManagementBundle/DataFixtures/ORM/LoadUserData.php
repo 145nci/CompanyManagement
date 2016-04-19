@@ -32,9 +32,9 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
         $userAdmin->setHourlyRate('42.31');
         $userAdmin->setCompany($this->getReference('company_1'));
 
-        //$userAdmin->setRole
+        $userAdmin->setRole($this->getReference('role_1'));
 
-        $this->addReference('user_1');
+        $this->addReference('user_1', $userAdmin);
 
         $manager->persist($userAdmin);
         $manager->flush();
@@ -47,6 +47,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 1;
+        return 3;
     }
 }

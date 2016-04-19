@@ -14,14 +14,14 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadAclData
+
+class LoadAclData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
         $role = new Acl();
-       // $role->setRole()
+        $role->setRole($this->getReference('role_1'));
         $role->setCompanyIndex(true);
-        
 
         $manager->persist($role);
         $manager->flush();
@@ -34,6 +34,6 @@ class LoadAclData
      */
     public function getOrder()
     {
-        return 1;
+        return 6;
     }
 }

@@ -14,17 +14,17 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class LoadWorkTimeLogData
+class LoadWorkTimeLogData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $worktime = new WorkTimeLog();
-        $worktime->setDateStart(new \DateTime());
-        $worktime->setDateEnd(new \DateTime());
-        $worktime->setUser($this->getReference('user_1'));
+        $workTime = new WorkTimeLog();
+        $workTime->setDateStart(new \DateTime());
+        $workTime->setDateEnd(new \DateTime());
+        $workTime->setUser($this->getReference('user_1'));
 
 
-        $manager->persist($worktime);
+        $manager->persist($workTime);
         $manager->flush();
     }
 
@@ -35,6 +35,6 @@ class LoadWorkTimeLogData
      */
     public function getOrder()
     {
-        return 1;
+        return 4;
     }
 }

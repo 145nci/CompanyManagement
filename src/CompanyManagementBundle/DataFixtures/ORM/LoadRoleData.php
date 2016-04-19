@@ -23,7 +23,8 @@ class LoadRoleData extends AbstractFixture implements OrderedFixtureInterface
         $role->setDescription('description');
         $role->setTitle('title');
         $role->setName('name');
-        //$role->setAcl()
+
+        $this->addReference('role_1', $role);
 
         $manager->persist($role);
         $manager->flush();
