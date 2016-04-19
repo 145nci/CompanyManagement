@@ -1,0 +1,24 @@
+worktimelog_index:
+    path:     /
+    defaults: { _controller: "CompanyManagementBundle:WorkTimeLog:index" }
+    methods:  GET
+
+worktimelog_show:
+    path:     /{id}/show
+    defaults: { _controller: "CompanyManagementBundle:WorkTimeLog:show" }
+    methods:  GET
+
+worktimelog_new:
+    path:     /new
+    defaults: { _controller: "CompanyManagementBundle:WorkTimeLog:new" }
+    methods:  [GET, POST]
+
+worktimelog_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CompanyManagementBundle:WorkTimeLog:edit" }
+    methods:  [GET, POST]
+
+worktimelog_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CompanyManagementBundle:WorkTimeLog:delete" }
+    methods:  DELETE

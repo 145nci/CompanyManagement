@@ -1,0 +1,128 @@
+<?php
+
+namespace CompanyManagementBundle\Controller;
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use CompanyManagementBundle\Entity\WorkTimeLog;
+use CompanyManagementBundle\Form\WorkTimeLogType;
+
+/**
+ * WorkTimeLog controller.
+ *
+ */
+class WorkTimeLogController extends Controller
+{
+    /**
+     * Lists all WorkTimeLog entities.
+     *
+     */
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $workTimeLogs = $em->getRepository('CompanyManagementBundle:WorkTimeLog')->findAll();
+
+        return $this->render('worktimelog/index.html.twig', array(
+            'workTimeLogs' => $workTimeLogs,
+        ));
+    }
+
+    /**
+     * Creates a new WorkTimeLog entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $workTimeLog = new WorkTimeLog();
+        $form = $this->createForm('CompanyManagementBundle\Form\WorkTimeLogType', $workTimeLog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($workTimeLog);
+            $em->flush();
+
+            return $this->redirectToRoute('worktimelog_show', array('id' => $workTimeLog->getId()));
+        }
+
+        return $this->render('worktimelog/new.html.twig', array(
+            'workTimeLog' => $workTimeLog,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a WorkTimeLog entity.
+     *
+     */
+    public function showAction(WorkTimeLog $workTimeLog)
+    {
+        $deleteForm = $this->createDeleteForm($workTimeLog);
+
+        return $this->render('worktimelog/show.html.twig', array(
+            'workTimeLog' => $workTimeLog,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing WorkTimeLog entity.
+     *
+     */
+    public function editAction(Request $request, WorkTimeLog $workTimeLog)
+    {
+        $deleteForm = $this->createDeleteForm($workTimeLog);
+        $editForm = $this->createForm('CompanyManagementBundle\Form\WorkTimeLogType', $workTimeLog);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($workTimeLog);
+            $em->flush();
+
+            return $this->redirectToRoute('worktimelog_edit', array('id' => $workTimeLog->getId()));
+        }
+
+        return $this->render('worktimelog/edit.html.twig', array(
+            'workTimeLog' => $workTimeLog,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a WorkTimeLog entity.
+     *
+     */
+    public function deleteAction(Request $request, WorkTimeLog $workTimeLog)
+    {
+        $form = $this->createDeleteForm($workTimeLog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($workTimeLog);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('worktimelog_index');
+    }
+
+    /**
+     * Creates a form to delete a WorkTimeLog entity.
+     *
+     * @param WorkTimeLog $workTimeLog The WorkTimeLog entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(WorkTimeLog $workTimeLog)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('worktimelog_delete', array('id' => $workTimeLog->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+        ;
+    }
+}

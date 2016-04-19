@@ -11,7 +11,8 @@ sudo apt-get install php5 php5-cgi php5-cli php5-curl php5-dbg php5-dev php5-gd 
 sudo mysql_install_db
 sudo /usr/bin/mysql_secure_installation
 
-sudo printf '<IfModule mod_dir.c>\n          DirectoryIndex index.php index.html index.cgi index.pl index.php index.xhtml index.htm\n</IfModule>' > /etc/apache2/mods-enabled/dir.conf
+
+sudo printf '<IfModule mod_dir.c>\n          DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm\n</IfModule>' > /etc/apache2/mods-enabled/dir.conf
 
 sudo service apache2 restart
 
@@ -30,10 +31,10 @@ php composer.phar update
 
 sudo chmod -R 777 $DIR
 
-a2enmod rewrite
+sudo a2enmod rewrite
 sudo cp $DIR/.company-management.com.conf_dev /etc/apache2/sites-available/company-management.com.conf
-sudo cp $DIR/.hosts_dev /etc/hosts
-a2ensite company-management.com.conf
+sudo printf "127.0.1.1       $(hostname)\n127.0.0.1  localhost\n127.0.0.1       company-management.com\n::1     ip6-localhost ip6-loopback\nfe00::0 ip6-localnet\nff00::0 ip6-mcastprefix\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters" > /etc/hosts
+sudo a2ensite company-management.com.conf
 
 sudo service apache2 restart
 
