@@ -21,7 +21,9 @@ class RegexpGeneratorServiceTest extends \Symfony\Bundle\FrameworkBundle\Test\We
 
         $regexpService = $this->container->get('regexp_generator');
 
-        $expression = $regexpService->matchingAll(array('wyraz1, wyraz2'));
+        $expression = $regexpService->matchingAll(array('wyraz1', 'wyraz2'));
+
+        var_dump($expression);
 
         $this->assertGreaterThan(0, preg_match(
                 $expression,
