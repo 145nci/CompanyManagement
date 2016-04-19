@@ -3,6 +3,7 @@
 namespace CompanyManagementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="CompanyManagementBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,77 +20,77 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=255)
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=255)
      */
-    private $lastName;
+    protected $lastName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
-     */
-    private $email;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="email", type="string", length=255, unique=true)
+//     */
+//    protected $email;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="password", type="string", length=255)
+//     */
+//    protected $password;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_added", type="datetime")
      */
-    private $dateAdded;
+    protected $dateAdded;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
      */
-    private $address;
+    protected $address;
 
     /**
      * @var string
      *
      * @ORM\Column(name="zip_code", type="string", length=255)
      */
-    private $zipCode;
+    protected $zipCode;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=255)
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hourly_rate", type="decimal", precision=10, scale=2)
      */
-    private $hourlyRate;
+    protected $hourlyRate;
 
     /**
      * @ORM\ManyToOne(targetEntity="Company", inversedBy="users")
@@ -377,6 +378,7 @@ class User
      */
     public function __construct()
     {
+        parent::__construct();
         $this->workTimeLogs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 

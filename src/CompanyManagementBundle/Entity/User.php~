@@ -3,6 +3,7 @@
 namespace CompanyManagementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="CompanyManagementBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var int
@@ -19,77 +20,77 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="first_name", type="string", length=255)
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=255)
      */
-    private $lastName;
+    protected $lastName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
-     */
-    private $email;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="email", type="string", length=255, unique=true)
+//     */
+//    protected $email;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
+//    /**
+//     * @var string
+//     *
+//     * @ORM\Column(name="password", type="string", length=255)
+//     */
+//    protected $password;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_added", type="datetime")
      */
-    private $dateAdded;
+    protected $dateAdded;
 
     /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255)
      */
-    private $address;
+    protected $address;
 
     /**
      * @var string
      *
      * @ORM\Column(name="zip_code", type="string", length=255)
      */
-    private $zipCode;
+    protected $zipCode;
 
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
      */
-    private $city;
+    protected $city;
 
     /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=255)
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @var string
      *
      * @ORM\Column(name="hourly_rate", type="decimal", precision=10, scale=2)
      */
-    private $hourlyRate;
+    protected $hourlyRate;
 
     /**
      * @ORM\ManyToOne(targetEntity="Company", inversedBy="users")
@@ -372,5 +373,145 @@ class User
     {
         return $this->hourlyRate;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->workTimeLogs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Set company
+     *
+     * @param \CompanyManagementBundle\Entity\Company $company
+     *
+     * @return User
+     */
+    public function setCompany(\CompanyManagementBundle\Entity\Company $company = null)
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \CompanyManagementBundle\Entity\Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    /**
+     * Add workTimeLog
+     *
+     * @param \CompanyManagementBundle\Entity\WorkTimeLog $workTimeLog
+     *
+     * @return User
+     */
+    public function addWorkTimeLog(\CompanyManagementBundle\Entity\WorkTimeLog $workTimeLog)
+    {
+        $this->workTimeLogs[] = $workTimeLog;
+
+        return $this;
+    }
+
+    /**
+     * Remove workTimeLog
+     *
+     * @param \CompanyManagementBundle\Entity\WorkTimeLog $workTimeLog
+     */
+    public function removeWorkTimeLog(\CompanyManagementBundle\Entity\WorkTimeLog $workTimeLog)
+    {
+        $this->workTimeLogs->removeElement($workTimeLog);
+    }
+
+    /**
+     * Get workTimeLogs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWorkTimeLogs()
+    {
+        return $this->workTimeLogs;
+    }
+
+    /**
+     * Set department
+     *
+     * @param \CompanyManagementBundle\Entity\Department $department
+     *
+     * @return User
+     */
+    public function setDepartment(\CompanyManagementBundle\Entity\Department $department = null)
+    {
+        $this->department = $department;
+
+        return $this;
+    }
+
+    /**
+     * Get department
+     *
+     * @return \CompanyManagementBundle\Entity\Department
+     */
+    public function getDepartment()
+    {
+        return $this->department;
+    }
+
+    /**
+     * Set managedDepartment
+     *
+     * @param \CompanyManagementBundle\Entity\Department $managedDepartment
+     *
+     * @return User
+     */
+    public function setManagedDepartment(\CompanyManagementBundle\Entity\Department $managedDepartment = null)
+    {
+        $this->managedDepartment = $managedDepartment;
+
+        return $this;
+    }
+
+    /**
+     * Get managedDepartment
+     *
+     * @return \CompanyManagementBundle\Entity\Department
+     */
+    public function getManagedDepartment()
+    {
+        return $this->managedDepartment;
+    }
+
+    /**
+     * Set role
+     *
+     * @param \CompanyManagementBundle\Entity\Role $role
+     *
+     * @return User
+     */
+    public function setRole(\CompanyManagementBundle\Entity\Role $role = null)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return \CompanyManagementBundle\Entity\Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function __toString(){
+        return $this->firstName.' '.$this->lastName;
+    }
+}
