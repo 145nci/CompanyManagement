@@ -9,7 +9,6 @@
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
-            <th>Dateadded</th>
             <th>Address</th>
             <th>Zipcode</th>
             <th>City</th>
@@ -23,10 +22,9 @@
                 {#<td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>#}
                 <td><span class="description">{{ user.firstName }}</span></td>
                 <td><span class="description">{{ user.lastName }}</span></td>
-                <td><span class="description">{{ user.email }}</span></td>
-                <td>{% if user.dateAdded %}{{ user.dateAdded|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td><span class="description">{{ user.address }}</span></td>
-                <td><span class="description">{{ user.zipCode }}</span></td>
+                <td><span class="mail">{{ user.email }}</span></td>
+                <td><span class="mail">{{ user.address }}</span></td>
+                <td><span class="zip">{{ user.zipCode }}</span></td>
                 <td><span class="description">{{ user.city }}</span></td>
                 <td><span class="description">{{ user.telephone }}</span></td>
                 <td>
