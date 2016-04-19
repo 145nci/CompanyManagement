@@ -10,9 +10,10 @@ before_script:
 #- export ADDITIONAL_PATH=`php -i | grep -F --color=never 'Scan this dir for additional .ini files'`
 #  - echo 'xdebug.max_nesting_level=9999' | sudo tee ${ADDITIONAL_PATH:42}/symfony2.ini
   - cp app/config/parameters_travis.yml app/config/parameters.yml
-  - mysql -e 'create database CompanyManagement;' -uroot
-  - mysql -e 'create database CompanyManagementTest;' -uroot
-  - composer install
+#  - mysql -e 'create database CompanyManagement;' -uroot
+#  - mysql -e 'create database CompanyManagementTest;' -uroot
+  - composer install --no-scripts
+  - php app/console cache:clear --env=test
   - php app/console doctrine:database:create --env=test
   - php app/console doctrine:schema:create --env=test
 
