@@ -13,9 +13,9 @@ before_script:
 #  - mysql -e 'create database CompanyManagement;' -uroot
 #  - mysql -e 'create database CompanyManagementTest;' -uroot
   - composer install --no-scripts
-  - php app/console cache:clear --env=test
   - php app/console doctrine:database:create --env=test
   - php app/console doctrine:schema:create --env=test
+  - php app/console cache:clear --env=test
 
 script: phpunit -c app/
 
