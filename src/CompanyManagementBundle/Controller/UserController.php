@@ -2,6 +2,7 @@
 
 namespace CompanyManagementBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -136,5 +137,17 @@ class UserController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function expandAction(Request $request)
+    {
+        $user_id = trim($request->request->get('user_id'));
+
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $em->getRepository('CompanyManagementBundle:User')->findOneBy(array('id' => $user_id));
+
+        $view = $this->render('CompanyManagementBundle:User:expand.html.twig', array('user' => $user))->getContent();
+        return new JsonResponse(array('view' => $view));
     }
 }

@@ -27,3 +27,8 @@ user_delete:
     path:     /{id}/delete
     defaults: { _controller: "CompanyManagementBundle:User:delete" }
     methods:  DELETE
+
+user_expand:
+  path:     /expand
+  defaults: { _controller: "CompanyManagementBundle:User:expand" }
+  methods:  POST

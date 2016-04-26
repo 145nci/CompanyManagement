@@ -3,16 +3,12 @@
 {% block body %}
 <div class="entry2">
     <h1>User list</h1>
-    <table>
+    <table class="list">
         <thead>
         <tr>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
-            <th>Address</th>
-            <th>Zipcode</th>
-            <th>City</th>
-            <th>Telephone</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -23,20 +19,24 @@
                 <td><span class="description">{{ user.firstName }}</span></td>
                 <td><span class="description">{{ user.lastName }}</span></td>
                 <td><span class="mail">{{ user.email }}</span></td>
-                <td><span class="mail">{{ user.address }}</span></td>
-                <td><span class="zip">{{ user.zipCode }}</span></td>
-                <td><span class="description">{{ user.city }}</span></td>
-                <td><span class="description">{{ user.telephone }}</span></td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('user_show', { 'id': user.id }) }}">show</a>
+                            <a onclick="expandUser('{{user.id}}')">show</a>
                         </li>
                         <li>
                             <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
+            </tr>
+
+            <tr>
+               <td colspan="4">
+                <div id="user_{{ user.id }}">
+
+                </div>
+               </td>
             </tr>
         {% endfor %}
         </tbody>
@@ -48,4 +48,23 @@
         </li>
     </ul>
 </div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+<script>
+    function expandUser(user_id)
+    {
+
+        $.post('{{ path('user_expand') }}',
+                {user_id:user_id},
+            function(response) {
+                $('#user_' + user_id).html(response['view']);
+            }, "json");
+//        $('#user_' + user_id).html('')
+    }
+</script>
+
 {% endblock %}
