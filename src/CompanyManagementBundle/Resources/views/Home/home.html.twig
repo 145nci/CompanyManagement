@@ -13,22 +13,26 @@
             </tr>
             <tr>
                 <td class="tab1">Name:</td>
-                <td class="tab1"> $Imie</td>
+                <td class="tab1">{{ user.firstName }}</td>
             </tr>
             <tr>
                 <td>Surname:</td>
-                <td>$Nazwisko</td>
+                <td>{{ user.lastName }}</td>
             </tr>
+            {% if user.department is not null %}
             <tr>
                 <td>Department:</td>
-                <td>$dział</td>
+                <td>{{ user.department.name }}</td>
                 <td class="sr"><input type="submit" value="Start work"></td>
             </tr>
+            {% endif %}
+            {% if user.parent is not null %}
             <tr>
                 <td>Boss:</td>
-                <td>$szef</td>
+                <td>{{ user.parent.firstName }} {{ user.parent.lastName }}</td>
                 <td class="sr"><input type="submit" value="End work"></td>
             </tr>
+            {% endif %}
             <tr>
                 <td>Number of hours worked:</td>
                 <td>$Ilosc</td>

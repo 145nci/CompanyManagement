@@ -36,6 +36,17 @@ class User extends BaseUser
      */
     protected $lastName;
 
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="parent")
+     */
+    protected $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    protected $parent;
+
 //    /**
 //     * @var string
 //     *
@@ -514,5 +525,121 @@ class User extends BaseUser
 
     public function __toString(){
         return $this->firstName.' '.$this->lastName;
+    }
+
+    /**
+     * Add worker
+     *
+     * @param \CompanyManagementBundle\Entity\User $worker
+     *
+     * @return User
+     */
+    public function addWorker(\CompanyManagementBundle\Entity\User $worker)
+    {
+        $this->workers[] = $worker;
+
+        return $this;
+    }
+
+    /**
+     * Remove worker
+     *
+     * @param \CompanyManagementBundle\Entity\User $worker
+     */
+    public function removeWorker(\CompanyManagementBundle\Entity\User $worker)
+    {
+        $this->workers->removeElement($worker);
+    }
+
+    /**
+     * Get workers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWorkers()
+    {
+        return $this->workers;
+    }
+
+    /**
+     * Set boss
+     *
+     * @param \CompanyManagementBundle\Entity\User $boss
+     *
+     * @return User
+     */
+    public function setBoss(\CompanyManagementBundle\Entity\User $boss = null)
+    {
+        $this->boss = $boss;
+
+        return $this;
+    }
+
+    /**
+     * Get boss
+     *
+     * @return \CompanyManagementBundle\Entity\User
+     */
+    public function getBoss()
+    {
+        return $this->boss;
+    }
+
+    /**
+     * Add child
+     *
+     * @param \CompanyManagementBundle\Entity\User $child
+     *
+     * @return User
+     */
+    public function addChild(\CompanyManagementBundle\Entity\User $child)
+    {
+        $this->children[] = $child;
+
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @param \CompanyManagementBundle\Entity\User $child
+     */
+    public function removeChild(\CompanyManagementBundle\Entity\User $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \CompanyManagementBundle\Entity\User $parent
+     *
+     * @return User
+     */
+    public function setParent(\CompanyManagementBundle\Entity\User $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \CompanyManagementBundle\Entity\User
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

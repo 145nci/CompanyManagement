@@ -2,15 +2,22 @@
 
 namespace CompanyManagementBundle\Controller;
 
+use CompanyManagementBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class HomeController extends Controller {
 
     public function homeAction() {
 
+        $user = $this->getUser();
 
+        if(!$user instanceof User){
+            return $this->redirectToRoute('fos_user_security_login');
+        }
 
-        return $this->render('CompanyManagementBundle:Home:home.html.twig', array());
+        return $this->render('CompanyManagementBundle:Home:home.html.twig', array(
+            'user' => $user
+        ));
     }
 
 }

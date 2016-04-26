@@ -20,25 +20,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-<div class="page">
-    <div id="logo" class="container">
-        <h1><a href="#">Company<span>Name</span></a></h1>
-        <p>Design by 145NCI_B</p>
-    </div>
-    <div id="menu" class="container">
-        <ul>
-            <li><a href="{{ path('home') }}"  title="">Homepage</a></li>
-            <li><a href="{{ path('user_list') }}"  title="">Workers list</a></li>
-            <li><a href="{{ path('user_new') }}"  title="">Add worker</a></li>
-            <li><a href="#" title="">Remove worker</a></li>
-            <li><a href="{{ path('role_new') }}" title="">Add role</a></li>
-            <li><a href="{{ path('fos_user_security_logout') }}" title="">Log out</a></li>
-        </ul>
-    </div>
-</div>
     {% block body %}{% endblock %}
 <div id="copyright" class="container">
-    <p>@Developed by Ł.Wencel, A.Szulist, W.Pruszak, P.Szwaba, D.Wnuk, O.Terlecki</p>
+    <p>@Produkcja Ł.Wencel, A.Szulist, W.Pruszak, P.Szwaba, D.Wnuk, O.Terlecki</p>
 </div>
     {% block javascripts %}
         {% javascripts

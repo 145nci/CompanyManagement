@@ -36,6 +36,17 @@ class User extends BaseUser
      */
     protected $lastName;
 
+    /**
+     * @ORM\OneToMany(targetEntity="User", mappedBy="parent")
+     */
+    protected $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    protected $parent;
+
 //    /**
 //     * @var string
 //     *
@@ -378,6 +389,7 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->workTimeLogs = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -513,5 +525,63 @@ class User extends BaseUser
 
     public function __toString(){
         return $this->firstName.' '.$this->lastName;
+    }
+
+    /**
+     * Add worker
+     *
+     * @param \CompanyManagementBundle\Entity\User $worker
+     *
+     * @return User
+     */
+    public function addWorker(\CompanyManagementBundle\Entity\User $worker)
+    {
+        $this->workers[] = $worker;
+
+        return $this;
+    }
+
+    /**
+     * Remove worker
+     *
+     * @param \CompanyManagementBundle\Entity\User $worker
+     */
+    public function removeWorker(\CompanyManagementBundle\Entity\User $worker)
+    {
+        $this->workers->removeElement($worker);
+    }
+
+    /**
+     * Get workers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWorkers()
+    {
+        return $this->workers;
+    }
+
+    /**
+     * Set boss
+     *
+     * @param \CompanyManagementBundle\Entity\User $boss
+     *
+     * @return User
+     */
+    public function setBoss(\CompanyManagementBundle\Entity\User $boss = null)
+    {
+        $this->boss = $boss;
+
+        return $this;
+    }
+
+    /**
+     * Get boss
+     *
+     * @return \CompanyManagementBundle\Entity\User
+     */
+    public function getBoss()
+    {
+        return $this->boss;
     }
 }

@@ -18,7 +18,6 @@ class RoleType extends AbstractType
             ->add('name')
             ->add('title')
             ->add('description')
-            ->add('acl')
         ;
     }
     
