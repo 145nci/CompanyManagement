@@ -23,7 +23,6 @@ class UserType extends AbstractType
                 'second_options' => array('label' => 'Repeat Password'),
                 'type' => 'password'
             ))
-            ->add('dateAdded', 'datetime')
             ->add('address')
             ->add('zipCode')
             ->add('city')
@@ -33,6 +32,7 @@ class UserType extends AbstractType
             ->add('department')
             ->add('managedDepartment')
             ->add('role')
+            ->add('parent')
         ;
     }
     
