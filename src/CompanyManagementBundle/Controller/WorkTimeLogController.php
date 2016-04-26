@@ -24,7 +24,7 @@ class WorkTimeLogController extends Controller
 
         $workTimeLogs = $em->getRepository('CompanyManagementBundle:WorkTimeLog')->findAll();
 
-        return $this->render('worktimelog/index.html.twig', array(
+        return $this->render('CompanyManagementBundle:WorkTimeLog:index.html.twig', array(
             'workTimeLogs' => $workTimeLogs,
         ));
     }
@@ -47,7 +47,7 @@ class WorkTimeLogController extends Controller
             return $this->redirectToRoute('worktimelog_show', array('id' => $workTimeLog->getId()));
         }
 
-        return $this->render('worktimelog/new.html.twig', array(
+        return $this->render('CompanyManagementBundle:WorkTimeLog:new.html.twig', array(
             'workTimeLog' => $workTimeLog,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class WorkTimeLogController extends Controller
     {
         $deleteForm = $this->createDeleteForm($workTimeLog);
 
-        return $this->render('worktimelog/show.html.twig', array(
+        return $this->render('CompanyManagementBundle:WorkTimeLog:show.html.twig', array(
             'workTimeLog' => $workTimeLog,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class WorkTimeLogController extends Controller
             return $this->redirectToRoute('worktimelog_edit', array('id' => $workTimeLog->getId()));
         }
 
-        return $this->render('worktimelog/edit.html.twig', array(
+        return $this->render('CompanyManagementBundle:WorkTimeLog:edit.html.twig', array(
             'workTimeLog' => $workTimeLog,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

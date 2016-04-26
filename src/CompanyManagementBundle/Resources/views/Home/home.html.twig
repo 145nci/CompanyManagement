@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="entry">
+        <table class="tab">
+            <tr class="wys">
+                <td colspan="2">Personal data:</td>
+                <td rowspan="3" class="sr">
+                    {% image '@CompanyManagementBundle/Resources/images/avatar.gif' %}
+                    <img src="{{ asset_url }}" alt="Bledzik" />
+                    {% endimage %}
+                </td>
+            </tr>
+            <tr>
+                <td class="tab1">Name:</td>
+                <td class="tab1"> $Imie</td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>$Nazwisko</td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td>$dział</td>
+                <td class="sr"><input type="submit" value="Start work"></td>
+            </tr>
+            <tr>
+                <td>Boss:</td>
+                <td>$szef</td>
+                <td class="sr"><input type="submit" value="End work"></td>
+            </tr>
+            <tr>
+                <td>Number of hours worked:</td>
+                <td>$Ilosc</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}

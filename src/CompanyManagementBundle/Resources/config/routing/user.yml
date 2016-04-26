@@ -8,6 +8,11 @@ user_show:
     defaults: { _controller: "CompanyManagementBundle:User:show" }
     methods:  GET
 
+user_list:
+    path:     /list
+    defaults: { _controller: "CompanyManagementBundle:User:list" }
+    methods:  GET
+
 user_new:
     path:     /new
     defaults: { _controller: "CompanyManagementBundle:User:new" }
