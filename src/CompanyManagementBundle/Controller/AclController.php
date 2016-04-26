@@ -24,7 +24,7 @@ class AclController extends Controller
 
         $acls = $em->getRepository('CompanyManagementBundle:Acl')->findAll();
 
-        return $this->render('acl/index.html.twig', array(
+        return $this->render('CompanyManagementBundle:Acl:index.html.twig', array(
             'acls' => $acls,
         ));
     }
@@ -47,7 +47,7 @@ class AclController extends Controller
             return $this->redirectToRoute('acl_show', array('id' => $acl->getId()));
         }
 
-        return $this->render('acl/new.html.twig', array(
+        return $this->render('CompanyManagementBundle:Acl:new.html.twig', array(
             'acl' => $acl,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class AclController extends Controller
     {
         $deleteForm = $this->createDeleteForm($acl);
 
-        return $this->render('acl/show.html.twig', array(
+        return $this->render('CompanyManagementBundle:Acl:show.html.twig', array(
             'acl' => $acl,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class AclController extends Controller
             return $this->redirectToRoute('acl_edit', array('id' => $acl->getId()));
         }
 
-        return $this->render('acl/edit.html.twig', array(
+        return $this->render('CompanyManagementBundle:Acl:edit.html.twig', array(
             'acl' => $acl,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

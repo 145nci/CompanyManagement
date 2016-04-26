@@ -24,7 +24,7 @@ class RoleController extends Controller
 
         $roles = $em->getRepository('CompanyManagementBundle:Role')->findAll();
 
-        return $this->render('role/index.html.twig', array(
+        return $this->render('CompanyManagementBundle:Role:index.html.twig', array(
             'roles' => $roles,
         ));
     }
@@ -47,7 +47,7 @@ class RoleController extends Controller
             return $this->redirectToRoute('role_show', array('id' => $role->getId()));
         }
 
-        return $this->render('role/new.html.twig', array(
+        return $this->render('CompanyManagementBundle:Role:new.html.twig', array(
             'role' => $role,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class RoleController extends Controller
     {
         $deleteForm = $this->createDeleteForm($role);
 
-        return $this->render('role/show.html.twig', array(
+        return $this->render('CompanyManagementBundle:Role:show.html.twig', array(
             'role' => $role,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -85,7 +85,7 @@ class RoleController extends Controller
             return $this->redirectToRoute('role_edit', array('id' => $role->getId()));
         }
 
-        return $this->render('role/edit.html.twig', array(
+        return $this->render('CompanyManagementBundle:Role:edit.html.twig', array(
             'role' => $role,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

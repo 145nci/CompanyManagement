@@ -29,7 +29,7 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
         $company->setTelephone('123456789');
         $company->setZipCode('123456789');
 
-        $this->addReference('company_1');
+        $this->addReference('company_1', $company);
 
         $manager->persist($company);
         $manager->flush();
@@ -42,6 +42,6 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }
