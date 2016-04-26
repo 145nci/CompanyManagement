@@ -40,6 +40,12 @@
 <div id="copyright" class="container">
     <p>@Produkcja Ł.Wencel, A.Szulist, W.Pruszak, P.Szwaba, D.Wnuk, O.Terlecki</p>
 </div>
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        {% javascripts
+        '@CompanyManagementBundle/Resources/js/jquery-1.12.3.min.js'
+        output='js/compiled.js'%}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
 </body>
 </html>
