@@ -11,6 +11,7 @@ sudo apt-get install php5 php5-cgi php5-cli php5-curl php5-dbg php5-dev php5-gd 
 sudo mysql_install_db
 sudo /usr/bin/mysql_secure_installation
 
+
 sudo printf '<IfModule mod_dir.c>\n          DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm\n</IfModule>' > /etc/apache2/mods-enabled/dir.conf
 
 sudo service apache2 restart
