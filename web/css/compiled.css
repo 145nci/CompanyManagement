@@ -76,12 +76,12 @@
 	{
 		margin: 0 auto;
 		align: center;
-		font-size: 1.5em;
+		font-size: 1em;
 		text-transform: uppercase;
 		padding: 50px 50px 80px 50px;
 		color: #454445;
 		background: #FFF;
-		width: 500px;
+		width: 1200px;
 		overflow: hidden;
 		margin-top: 50px;
 		border: 1px;
@@ -108,6 +108,16 @@
 	{
 		display: block;
 	}
+
+/*********************************************************************************/
+/* List                                                         				 */
+/*********************************************************************************/
+
+	.lista
+	{
+		width: 1200px;
+	}
+
 /*********************************************************************************/
 /* Tab                                                          				 */
 /*********************************************************************************/
@@ -134,7 +144,6 @@
 	{
 		text-align:center;
 		display:inline-block;
-		width:135px;
 		white-space: nowrap;
 		overflow:auto;
 		text-overflow: ellipsis;
@@ -150,7 +159,6 @@
 	{
 		text-align:center;
 		display:inline-block;
-		width:200px;
 		white-space: nowrap;
 		overflow:auto;
 		text-overflow: ellipsis;
