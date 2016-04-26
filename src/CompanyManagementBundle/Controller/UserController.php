@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use CompanyManagementBundle\Entity\User;
 use CompanyManagementBundle\Form\UserType;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * User controller.
@@ -53,6 +54,18 @@ class UserController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->container->get('fos_user.user_manager');
+
+            //hash password
+            $data = $form->getData();
+            $user->setUsername($user->getFirstName(). ' ' . $user->getLastName());
+            $encoder = $this->container->get('security.password_encoder');
+            $encoded = $encoder->encodePassword($user, $data->getPassword());
+            $user->setPassword($encoded);
+
+            $user->setDateAdded(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
