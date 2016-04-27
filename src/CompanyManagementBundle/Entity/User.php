@@ -25,14 +25,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255)
+     * @ORM\Column(name="first_name", type="string", length=30)
      */
     protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="last_name", type="string", length=255)
+     * @ORM\Column(name="last_name", type="string", length=30)
      */
     protected $lastName;
 
@@ -78,7 +78,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="zip_code", type="string", length=255)
+     * @ORM\Column(name="zip_code", type="string", length=30)
      */
     protected $zipCode;
 
