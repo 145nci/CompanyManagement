@@ -10,10 +10,10 @@
             <thead>
             <tr>
                 {# sorting of properties based on query components #}
-                <th>{{ knp_pagination_sortable(pagination, 'Firstname', 'u.firstName') }}</th>
-                <th{% if pagination.isSorted('u.firstName') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Lastname', 'u.lastName') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'Email', ['u.email', 'u.username']) }}</th>
-                <th>Actions</th>
+                <th class="left">{{ knp_pagination_sortable(pagination, 'Firstname', 'u.firstName') }}</th>
+                <th class="left"{% if pagination.isSorted('u.firstName') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Lastname', 'u.lastName') }}</th>
+                <th class="left">{{ knp_pagination_sortable(pagination, 'Email', ['u.email', 'u.username']) }}</th>
+                <th class="right">Actions</th>
             </tr>
             </thead>
             <tbody>

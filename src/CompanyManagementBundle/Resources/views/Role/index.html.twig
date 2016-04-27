@@ -1,16 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="entry2">
     <h1>Role list</h1>
 
-    <table>
+    <table class="list">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th class="left">Id</th>
+                <th class="left">Name</th>
+                <th class="left">Title</th>
+                <th class="left">Description</th>
+                <th class="right">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +22,7 @@
                 <td>{{ role.title }}</td>
                 <td>{{ role.description }}</td>
                 <td>
-                    <ul>
+                    <ul class="right">
                         <li>
                             <a href="{{ path('role_show', { 'id': role.id }) }}">show</a>
                         </li>
@@ -40,4 +41,5 @@
             <a href="{{ path('role_new') }}">Create a new entry</a>
         </li>
     </ul>
+    </div>
 {% endblock %}
