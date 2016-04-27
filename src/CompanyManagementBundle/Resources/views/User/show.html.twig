@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
 
-    <table>
-        <tbody>
+    <div class="entry">
+        <h1>User</h1>
+
+        <table>
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
@@ -20,10 +22,6 @@
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
             </tr>
             <tr>
                 <th>Dateadded</th>
@@ -49,20 +47,21 @@
                 <th>Hourlyrate</th>
                 <td>{{ user.hourlyRate }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
+        <ul>
+            <li>
+                <a href="{{ path('user_list') }}">Back to the list</a>
+            </li>
+            <li>
+                <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
+            </li>
+            <li>
+                {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                {{ form_end(delete_form) }}
+            </li>
+        </ul>
+    </div>
 {% endblock %}

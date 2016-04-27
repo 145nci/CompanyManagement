@@ -31,15 +31,25 @@ class UserController extends Controller
         ));
     }
 
-    public function listAction() {
+    public function listAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
 
-        //TODO - role pracownik.
-        $users = $em->getRepository('CompanyManagementBundle:User')->findAll();
+        $paginator  = $this->get('knp_paginator');
 
+        $query = $em->getRepository('CompanyManagementBundle:User')->createQueryBuilder('u')
+            ->where('1 = 1')->getQuery();
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
+        // parameters to template
+        //TODO - role pracownik.
         return $this->render('CompanyManagementBundle:User:list.html.twig', array(
-            'users' => $users,
+            'pagination' => $pagination,
         ));
     }
 
