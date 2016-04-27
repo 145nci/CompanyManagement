@@ -171,6 +171,7 @@ class UserController extends Controller
         $user = $em->getRepository('CompanyManagementBundle:User')->findOneBy(array('id' => $user_id));
 
         $view = $this->render('CompanyManagementBundle:User:expand.html.twig', array('user' => $user))->getContent();
+
         return new JsonResponse(array('view' => $view));
     }
 }
