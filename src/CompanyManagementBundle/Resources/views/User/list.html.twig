@@ -2,10 +2,16 @@
 
 {% block body %}
     <div class="entry2">
-        <div class="count">
-            {{ pagination.getTotalItemCount }}
-        </div>
         <h1>User list</h1>
+        <br>
+        <div style="display:inline-block;">
+            <div style="display: inline">
+                <a href="{{ path('user_new') }}">Create a new entry</a>
+            </div>
+            <div class="count" style="display: inline;">
+                Total items:{{ pagination.getTotalItemCount }}
+            </div>
+        </div>
         <table class="list">
             <thead>
             <tr>
@@ -47,11 +53,6 @@
             {{ knp_pagination_render(pagination) }}
         </div>
 
-        <ul>
-            <li>
-                <a href="{{ path('user_new') }}">Create a new entry</a>
-            </li>
-        </ul>
     </div>
 
 
@@ -62,7 +63,7 @@
     <script>
         function expandUser(user_id) {
 
-            if($('#user_' + user_id).hasClass('shown')) {
+            if ($('#user_' + user_id).hasClass('shown')) {
                 $('#user_' + user_id).toggle();
                 return;
             }
