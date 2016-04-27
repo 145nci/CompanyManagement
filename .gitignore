@@ -12,6 +12,9 @@
 /composer.phar
 /.htaccess
 /src/.htaccess
-/web/css
 /web/.htaccess
 /.idea
+/web/css
+/web/css/*
+/web/js
+/web/js/*
