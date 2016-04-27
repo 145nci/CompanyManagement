@@ -69,7 +69,7 @@ class UserController extends Controller
 
             //hash password
             $data = $form->getData();
-            $user->setUsername($user->getFirstName(). ' ' . $user->getLastName());
+            $user->setUsername(md5($user->getFirstName(). $user->getLastName() . $user->getId()));
             $encoder = $this->container->get('security.password_encoder');
             $encoded = $encoder->encodePassword($user, $data->getPassword());
             $user->setPassword($encoded);
