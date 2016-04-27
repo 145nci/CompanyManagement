@@ -61,6 +61,21 @@
 	{
 		margin: 0 auto;
 		align: center;
+		font-size: 1.5em;
+		text-transform: uppercase;
+		padding: 50px 50px 80px 50px;
+		color: #454445;
+		background: #FFF;
+		width: 900px;
+		overflow: hidden;
+		margin-top: 50px;
+		border: 1px;
+		
+	}
+	.en
+	{
+		margin: 0 auto;
+		align: center;
 		font-size: 1em;
 		padding: 50px 50px 80px 50px;
 		color: #454445;
@@ -70,9 +85,9 @@
 		margin-top: 50px;
 		border: 1px;
 		text-align: center;
-		
+
 	}
-	.entry1
+	.entry
 	{
 		margin: 0 auto;
 		align: center;
@@ -135,7 +150,7 @@
 	}
 	.ca
 	{
-		display: inline;
+		display: block;
 	}
 
 	/*********************************************************************************/
