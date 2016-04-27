@@ -2,18 +2,23 @@
 
 {% block body %}
     <div class="entry">
-        <div>
-            <div>Personal data:</div>
-            <div>
+        <div class="linia">
+            <div class="komorka">Personal data:</div>
+        </div>
+            <div class="linia">
+                <div class="komorka">
+                    <div>Name:</div>
+                    <div>{{ user.firstName }}</div>
+                </div>
+
+                <div class="komorka">
                 {% image '@CompanyManagementBundle/Resources/images/avatar.gif' %}
                 <img src="{{ asset_url }}" alt="Bledzik"/>
                 {% endimage %}
+                </div>
             </div>
-        </div>
-        <div>
-            <div>Name:</div>
-            <div>{{ user.firstName }}</div>
-        </div>
+
+
         <div>
             <div>Surname:</div>
             <div>{{ user.lastName }}</div>
