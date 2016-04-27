@@ -123,21 +123,19 @@
 		background: darkgray;
 		display: block;
 	}
-	.list-top
+
+	.list1
 	{
-		border-right:10px solid ;
+		font-weight: bold;
+		display: inline-table;
 	}
-	.komorka
+	.list2
 	{
-	display: inline;
-	width: 142px;
-	padding: 2em;
+		display: inline-table;
 	}
-	.linia
+	.ca
 	{
-	width: inherit;
-	padding: 4px 0 4px 0;
-	border: 0;
+		display: block;
 	}
 
 	/*********************************************************************************/
