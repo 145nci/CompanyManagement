@@ -6,10 +6,10 @@
     <table class="list">
         <thead>
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <th class="left">Firstname</th>
+            <th class="left">Lastname</th>
+            <th class="left">Email</th>
+            <th class="right">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -19,10 +19,10 @@
 
                 <td><span >{{ user.firstName }}</span></td>
                 <td><span>{{ user.lastName }}</span></td>
-                <td><span >{{ user.email }}</span></td>
+                <td ><span >{{ user.email }}</span></td>
 
                 <td>
-                    <ul>
+                    <ul class="right">
                         <li>
                             <a onclick="expandUser('{{ user.id}}')">show</a>
                         </li>
