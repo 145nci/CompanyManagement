@@ -62,10 +62,19 @@
     <script>
         function expandUser(user_id) {
 
+            if($('#user_' + user_id).hasClass('shown')) {
+                $('#user_' + user_id).toggle();
+                return;
+            }
+
             $.post('{{ path('user_expand') }}',
                     {user_id: user_id},
+
                     function (response) {
+
                         $('#user_' + user_id).html(response['view']);
+                        $('#user_' + user_id).addClass('shown');
+
                     }, "json");
         }
     </script>
