@@ -4,6 +4,7 @@
 <div class="entry2">
     <h1>User list</h1>
     <table class="list">
+
         <thead>
         <tr>
             <th>Firstname</th>
@@ -16,13 +17,15 @@
         {% for user in users %}
             <tr>
                 {#<td><a href="{{ path('user_show', { 'id': user.id }) }}">{{ user.id }}</a></td>#}
-                <td><span class="description">{{ user.firstName }}</span></td>
-                <td><span class="description">{{ user.lastName }}</span></td>
-                <td><span class="mail">{{ user.email }}</span></td>
+
+                <td><span >{{ user.firstName }}</span></td>
+                <td><span>{{ user.lastName }}</span></td>
+                <td><span >{{ user.email }}</span></td>
+
                 <td>
                     <ul>
                         <li>
-                            <a onclick="expandUser('{{user.id}}')">show</a>
+                            <a onclick="expandUser('{{ user.id}}')">show</a>
                         </li>
                         <li>
                             <a href="{{ path('user_edit', { 'id': user.id }) }}">edit</a>
@@ -68,3 +71,4 @@
 </script>
 
 {% endblock %}
+
