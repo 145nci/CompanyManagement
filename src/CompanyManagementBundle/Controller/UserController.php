@@ -104,6 +104,14 @@ class UserController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            //hash password
+            $data = $editForm->getData();
+            $user->setUsername($user->getFirstName(). ' ' . $user->getLastName());
+            $encoder = $this->container->get('security.password_encoder');
+            $encoded = $encoder->encodePassword($user, $data->getPassword());
+            $user->setPassword($encoded);
+
             $em->persist($user);
             $em->flush();
 

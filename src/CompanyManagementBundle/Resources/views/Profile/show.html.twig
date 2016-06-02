@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ user.id }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ user.firstName }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <th>Dateadded</th>
+            <td>{% if user.dateAdded %}{{ user.dateAdded|date('Y-m-d H:i:s') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>{{ user.address }}</td>
+        </tr>
+        <tr>
+            <th>Zipcode</th>
+            <td>{{ user.zipCode }}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>{{ user.city }}</td>
+        </tr>
+        <tr>
+            <th>Telephone</th>
+            <td>{{ user.telephone }}</td>
+        </tr>
+        <tr>
+            <th>Hourlyrate</th>
+            <td>{{ user.hourlyRate }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

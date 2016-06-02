@@ -18,3 +18,9 @@ services:
   regexp:
       class: CompanyManagementBundle\Libraries\Regexp\RegexpService
       arguments: ['@service_container']
+
+  company_management.form.change_password:
+      class: CompanyManagementBundle\Form\ChangePasswordFormType
+      arguments: [%fos_user.model.user.class%]
+      tags:
+          - { name: form.type, alias: company_management_form_change_password }
