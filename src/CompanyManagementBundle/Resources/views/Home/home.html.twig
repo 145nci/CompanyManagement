@@ -2,45 +2,101 @@
 
 {% block body %}
     <div class="entry">
-        <div class="linia">
-            <div class="komorka">Personal data:</div>
-        </div>
-            <div class="linia">
-                <div class="komorka">
-                    <div>Name:</div>
-                    <div>{{ user.firstName }}</div>
+        <div class="tablewrapper">
+            <div class="table">
+
+                <div class="row">
+                    <div class="cell2">
+                        Personal data:
+                    </div>
+                    <div class="cell1">
+                    </div>
+                    <div class="cell center">
+
+                    </div>
                 </div>
 
-                <div class="komorka">
-                {% image '@CompanyManagementBundle/Resources/images/avatar.gif' %}
-                <img src="{{ asset_url }}" alt="Bledzik"/>
-                {% endimage %}
+                <div class="row">
+                    <div class="cell">
+                        Name:
+                    </div>
+                    <div class="cell">
+                        {{ user.firstName }}
+                    </div>
+                    <div class="cell center">
+                        {% image '@CompanyManagementBundle/Resources/images/avatar.gif' %}
+                        <img src="{{ asset_url }}" alt="Bledzik"/>
+                        {% endimage %}
+                    </div>
                 </div>
-            </div>
 
+                <div class="row">
+                    <div class="cell">
+                        Surname:
+                    </div>
+                    <div class="cell">
+                        {{ user.lastName }}
+                    </div>
+                    <div class="cell">
+                    </div>
+                </div>
 
-        <div>
-            <div>Surname:</div>
-            <div>{{ user.lastName }}</div>
-        </div>
-        {% if user.department is not null %}
-            <div>
-                <div>Department:</div>
-                <div>{{ user.department.name }}</div>
+                <div class="row">
+                    <div class="cell">
+                        {% if user.department is not null %}
+
+                        Department:
+
+                        {% endif %}
+                    </div>
+                    <div class="cell">
+
+                        {% if user.department is not null %}
+
+                            {{ user.department.name }}
+
+                        {% endif %}
+                    </div>
+                    <div class="cell">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">
+                        {% if user.parent is not null %}
+
+                        Boss:
+
+                        {% endif %}
+                    </div>
+                    <div class="cell">
+                        {% if user.parent is not null %}
+
+                        {{ user.parent.firstName }} {{ user.parent.lastName }}
+
+                        {% endif %}
+                    </div>
+                    <div class="cell center">
+                        <input type="submit" value="Start work">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="cell">
+                        Number of hours worked:
+                    </div>
+                    <div class="cell">
+                        $Ilosc
+                    </div>
+                    <div class="cell center">
+                        <input type="submit" value="End work">
+                    </div>
+                </div>
+
             </div>
-        {% endif %}
-        {% if user.parent is not null %}
-            <div>
-                <div>Boss:</div>
-                <div>{{ user.parent.firstName }} {{ user.parent.lastName }}</div>
-            </div>
-        {% endif %}
-        <div>
-            <div>Number of hours worked:</div>
-            <div>$Ilosc</div>
         </div>
-        <div><input type="submit" value="End work"></div>
-        <div><input type="submit" value="Start work"></div>
+
+    <div class="container">
     </div>
 
 {% endblock %}

@@ -171,7 +171,47 @@
 	/*********************************************************************************/
 /* Tab                                                          				 */
 /*********************************************************************************/
+	.tablewrapper {
+		position: relative;
+		width: 600px;
+		margin:0 auto;
 
+	}
+	.table {
+		display: table;
+		width: 600px;
+		margin:0 auto;
+		font-size: 25px;
+
+	}
+	.row {
+		display: table-row;
+
+
+	}
+	.cell1 {
+		display: table-cell;
+		width: 200px;
+	}
+	.cell {
+		display: table-cell;
+	}
+	.cell2 {
+		display: table-cell;
+		width: 200px;
+		font-weight: bold;
+	}
+	.cell.center
+	{
+		display: table-cell;
+		text-align: center;
+	}
+	.cell.rowspanned {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100px;
+	}
 	.tab
 	{
 		margin: 0 auto;
