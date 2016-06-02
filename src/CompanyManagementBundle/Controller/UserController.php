@@ -99,23 +99,16 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('CompanyManagementBundle\Form\UserType', $user);
+        $editForm = $this->createForm('CompanyManagementBundle\Form\UserEditType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            //hash password
-            $data = $editForm->getData();
-            $user->setUsername($user->getFirstName(). ' ' . $user->getLastName());
-            $encoder = $this->container->get('security.password_encoder');
-            $encoded = $encoder->encodePassword($user, $data->getPassword());
-            $user->setPassword($encoded);
-
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_list');
         }
 
         return $this->render('CompanyManagementBundle:User:edit.html.twig', array(
