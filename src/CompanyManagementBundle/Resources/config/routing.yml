@@ -1,6 +1,6 @@
 company_management_homepage:
     path:     /
-    defaults: { _controller: CompanyManagementBundle:Default:index }
+    defaults: { _controller: FOSUserBundle:Profile:show }
 
 company_management_acl:
     resource: "@CompanyManagementBundle/Resources/config/routing/acl.yml"
@@ -25,6 +25,3 @@ company_management_user:
 company_management_worktimelog:
     resource: "@CompanyManagementBundle/Resources/config/routing/worktimelog.yml"
     prefix:   /worktimelog
-home:
-    path:     /home
-    defaults: { _controller: CompanyManagementBundle:Home:home }

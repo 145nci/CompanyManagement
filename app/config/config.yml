@@ -91,3 +91,6 @@ fos_user:
     registration:
             form:
                 type: CompanyManagementBundle\Form\RegistrationType
+    change_password:
+            form:
+                type: company_management_form_change_password

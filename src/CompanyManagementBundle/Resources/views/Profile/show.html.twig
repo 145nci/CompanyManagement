@@ -1,5 +1,43 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "base.html.twig" %}
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Profile:show_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block body %}
+    <div class="entry">
+        <table class="tab">
+            <tr class="wys">
+                <td colspan="2">Personal data:</td>
+                <td rowspan="3" class="sr">
+                    {% image '@CompanyManagementBundle/Resources/images/avatar.gif' %}
+                    <img src="{{ asset_url }}" alt="Bledzik" />
+                    {% endimage %}
+                </td>
+            </tr>
+            <tr>
+                <td class="tab1">Name:</td>
+                <td class="tab1">{{ user.firstName }}</td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>{{ user.lastName }}</td>
+            </tr>
+            {% if user.department is not null %}
+                <tr>
+                    <td>Department:</td>
+                    <td>{{ user.department.name }}</td>
+                    <td class="sr"><input type="submit" value="Start work"></td>
+                </tr>
+            {% endif %}
+            {% if user.parent is not null %}
+                <tr>
+                    <td>Boss:</td>
+                    <td>{{ user.parent.firstName }} {{ user.parent.lastName }}</td>
+                    <td class="sr"><input type="submit" value="End work"></td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>Number of hours worked:</td>
+                <td>$Ilosc</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

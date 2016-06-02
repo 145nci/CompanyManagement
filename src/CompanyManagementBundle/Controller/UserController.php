@@ -110,15 +110,16 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('CompanyManagementBundle\Form\UserType', $user);
+        $editForm = $this->createForm('CompanyManagementBundle\Form\UserEditType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_edit', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_list');
         }
 
         return $this->render('CompanyManagementBundle:User:edit.html.twig', array(
