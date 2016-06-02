@@ -25,6 +25,7 @@ company_management_user:
 company_management_worktimelog:
     resource: "@CompanyManagementBundle/Resources/config/routing/worktimelog.yml"
     prefix:   /worktimelog
+
 home:
     path:     /home
     defaults: { _controller: CompanyManagementBundle:Home:home }

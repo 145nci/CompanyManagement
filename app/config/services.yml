@@ -18,3 +18,12 @@ services:
   regexp:
       class: CompanyManagementBundle\Libraries\Regexp\RegexpService
       arguments: ['@service_container']
+
+  login_listener:
+        class: CompanyManagementBundle\Listener\LoginListener
+        arguments: [@service_container, @router]
+        tags:
+          - { name: kernel.event_subscriber, event: kernel.request, method: onKernelRequest }
+
+  acl_service:
+      class: CompanyManagementBundle\Libraries\AclService

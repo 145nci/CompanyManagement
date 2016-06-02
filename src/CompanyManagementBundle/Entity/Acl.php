@@ -29,11 +29,11 @@ class Acl
     protected $role;
 
     /**
-     * @var bool
+     * @var array
      *
-     * @ORM\Column(name="company_index", type="boolean")
+     * @ORM\Column(name="allowedActions", type="text", nullable=false)
      */
-    private $companyIndex;
+    private $allowedActions;
 
 
     /**
@@ -44,30 +44,6 @@ class Acl
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set companyIndex
-     *
-     * @param boolean $companyIndex
-     *
-     * @return Acl
-     */
-    public function setCompanyIndex($companyIndex)
-    {
-        $this->companyIndex = $companyIndex;
-
-        return $this;
-    }
-
-    /**
-     * Get companyIndex
-     *
-     * @return bool
-     */
-    public function getCompanyIndex()
-    {
-        return $this->companyIndex;
     }
 
     /**
@@ -92,5 +68,29 @@ class Acl
     public function getRole()
     {
         return $this->role;
+    }
+
+    /**
+     * Set allowedActions
+     *
+     * @param string $allowedActions
+     *
+     * @return Acl
+     */
+    public function setAllowedActions($allowedActions)
+    {
+        $this->allowedActions = $allowedActions;
+
+        return $this;
+    }
+
+    /**
+     * Get allowedActions
+     *
+     * @return string
+     */
+    public function getAllowedActions()
+    {
+        return $this->allowedActions;
     }
 }

@@ -12,14 +12,14 @@ use CompanyManagementBundle\Form\AclType;
  * Acl controller.
  *
  */
-class AclController extends Controller
-{
+class AclController extends Controller {
+
     /**
      * Lists all Acl entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction(Request $request) {
+
         $em = $this->getDoctrine()->getManager();
 
         $acls = $em->getRepository('CompanyManagementBundle:Acl')->findAll();
@@ -31,11 +31,11 @@ class AclController extends Controller
 
     /**
      * Creates a new Acl entity.
-     *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
+
         $acl = new Acl();
+        AclType::setContainer($this->container);
         $form = $this->createForm('CompanyManagementBundle\Form\AclType', $acl);
         $form->handleRequest($request);
 
@@ -57,8 +57,8 @@ class AclController extends Controller
      * Finds and displays a Acl entity.
      *
      */
-    public function showAction(Acl $acl)
-    {
+    public function showAction(Acl $acl) {
+
         $deleteForm = $this->createDeleteForm($acl);
 
         return $this->render('CompanyManagementBundle:Acl:show.html.twig', array(
@@ -71,8 +71,8 @@ class AclController extends Controller
      * Displays a form to edit an existing Acl entity.
      *
      */
-    public function editAction(Request $request, Acl $acl)
-    {
+    public function editAction(Request $request, Acl $acl) {
+
         $deleteForm = $this->createDeleteForm($acl);
         $editForm = $this->createForm('CompanyManagementBundle\Form\AclType', $acl);
         $editForm->handleRequest($request);
@@ -96,8 +96,8 @@ class AclController extends Controller
      * Deletes a Acl entity.
      *
      */
-    public function deleteAction(Request $request, Acl $acl)
-    {
+    public function deleteAction(Request $request, Acl $acl) {
+
         $form = $this->createDeleteForm($acl);
         $form->handleRequest($request);
 
@@ -117,12 +117,11 @@ class AclController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Acl $acl)
-    {
+    private function createDeleteForm(Acl $acl) {
+
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('acl_delete', array('id' => $acl->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
