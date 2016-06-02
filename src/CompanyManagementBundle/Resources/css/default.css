@@ -281,8 +281,13 @@
 	.left1
 	{
 		display: block;
+	}
+	.left2
+	{
+		float: right;
 
 	}
+
 
 	.en textarea {
 		width: 490px;

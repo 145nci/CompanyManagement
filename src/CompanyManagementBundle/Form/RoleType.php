@@ -26,6 +26,9 @@ class RoleType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'left1'
+                ),
+                'label_attr' => array(
+                    'class' => 'left2'
                 )
             ))
             ->add('delete_user', CheckboxType::class, array(
@@ -35,6 +38,9 @@ class RoleType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'left1'
+                ),
+                'label_attr' => array(
+                    'class' => 'left2'
                 )
             ))
             ->add('details_users', CheckboxType::class, array(
@@ -44,7 +50,10 @@ class RoleType extends AbstractType
                 'required' => false,
                  'attr' => array(
                      'class' => 'left1'
-                 )
+                 ),
+                'label_attr' => array(
+                    'class' => 'left2'
+                )
             ))
             ->add('create_role', CheckboxType::class, array(
                 'label' => 'create role',
@@ -53,7 +62,10 @@ class RoleType extends AbstractType
                 'required' => false,
                  'attr' => array(
                      'class' => 'left1'
-                 )
+                 ),
+                'label_attr' => array(
+                    'class' => 'left2'
+                )
             ))
             ->add('view_role', CheckboxType::class, array(
                 'label' => 'view role',
@@ -62,7 +74,10 @@ class RoleType extends AbstractType
                 'required' => false,
                  'attr' => array(
                      'class' => 'left1'
-                 )
+                 ),
+                'label_attr' => array(
+                    'class' => 'left2'
+                )
             ))
         ;
     }
