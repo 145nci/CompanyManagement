@@ -119,7 +119,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('user_list', array('id' => $user->getId()));
         }
 
         return $this->render('CompanyManagementBundle:User:edit.html.twig', array(
@@ -144,7 +144,7 @@ class UserController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('user_index');
+        return $this->redirectToRoute('user_list');
     }
 
     /**
