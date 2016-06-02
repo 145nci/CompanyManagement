@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="entry">
     <h1>User edit</h1>
 
     {{ form_start(edit_form) }}
@@ -10,7 +11,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
+            <a href="{{ path('user_list') }}">Back to the list</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -18,4 +19,5 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
 {% endblock %}

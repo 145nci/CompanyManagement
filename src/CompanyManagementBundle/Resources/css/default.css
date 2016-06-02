@@ -61,6 +61,21 @@
 	{
 		margin: 0 auto;
 		align: center;
+		font-size: 1.5em;
+		text-transform: uppercase;
+		padding: 50px 50px 80px 50px;
+		color: #454445;
+		background: #FFF;
+		width: 900px;
+		overflow: hidden;
+		margin-top: 50px;
+		border: 1px;
+		
+	}
+	.en
+	{
+		margin: 0 auto;
+		align: center;
 		font-size: 1em;
 		padding: 50px 50px 80px 50px;
 		color: #454445;
@@ -70,9 +85,9 @@
 		margin-top: 50px;
 		border: 1px;
 		text-align: center;
-		
+
 	}
-	.entry1
+	.entry
 	{
 		margin: 0 auto;
 		align: center;
@@ -135,13 +150,80 @@
 	}
 	.ca
 	{
+		display: block;
+	}
+/*********************************************************************************/
+/* Home                                                       				 */
+/*********************************************************************************/
+
+	.linia
+	{
+		width: inherit;
+		padding: 4px 0 4px 0;
+		border: 0;
+	}
+	.komorka
+	{
 		display: inline;
+		width: 142px;
+	}
+/*********************************************************************************/
+/* Show user                                                          				 */
+/*********************************************************************************/
+
+	.show_user{
+		text-align: center;
+		align: center;
+		margin:0 auto;
+	}
+	.sher{
+		width: 200px;
 	}
 
 	/*********************************************************************************/
 /* Tab                                                          				 */
 /*********************************************************************************/
+	.tablewrapper {
+		position: relative;
+		width: 600px;
+		margin:0 auto;
 
+	}
+	.table {
+		display: table;
+		width: 600px;
+		margin:0 auto;
+		font-size: 25px;
+
+	}
+	.row {
+		display: table-row;
+
+
+	}
+	.cell1 {
+		display: table-cell;
+		width: 200px;
+	}
+	.cell {
+		display: table-cell;
+	}
+	.cell2 {
+		display: table-cell;
+		width: 200px;
+		font-weight: bold;
+	}
+	.cell.center
+	{
+		display: table-cell;
+		text-align: center;
+	}
+	.cell.rowspanned {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100px;
+	}
 	.tab
 	{
 		margin: 0 auto;
@@ -195,6 +277,24 @@
 	.left
 	{
 		text-align: left;
+	}
+	.left1
+	{
+		display: block;
+	}
+	.left2
+	{
+		float: right;
+
+	}
+
+
+	.en textarea {
+		width: 490px;
+		height: 150px;
+		max-width: 490px;
+		min-width: 490px;
+		min-height: 150px;
 	}
 /*********************************************************************************/
 /* Heading Titles                                                                */
