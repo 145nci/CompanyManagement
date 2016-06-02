@@ -2,50 +2,51 @@
 
 {% block body %}
 
-    <h1>User</h1>
 
-    <div class="entry">
 
-        <table>
+    <div class="en">
+        <div class="show_user">
+        <h1>User</h1>
+        <table class="show_user">
             <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
+                <th class="right">Id</th>
+                <td class="sher">{{ user.id }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th class="right">Firstname</th>
                 <td>{{ user.firstName }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th class="right">Lastname</th>
                 <td>{{ user.lastName }}</td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th class="right">Email</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
-                <th>Dateadded</th>
+                <th class="right">Dateadded</th>
                 <td>{% if user.dateAdded %}{{ user.dateAdded|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Address</th>
+                <th class="right">Address</th>
                 <td>{{ user.address }}</td>
             </tr>
             <tr>
-                <th>Zipcode</th>
+                <th class="right">Zipcode</th>
                 <td>{{ user.zipCode }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th class="right">City</th>
                 <td>{{ user.city }}</td>
             </tr>
             <tr>
-                <th>Telephone</th>
+                <th class="right">Telephone</th>
                 <td>{{ user.telephone }}</td>
             </tr>
             <tr>
-                <th>Hourlyrate</th>
+                <th class="right">Hourlyrate</th>
                 <td>{{ user.hourlyRate }}</td>
             </tr>
             </tbody>
@@ -64,5 +65,6 @@
                 {{ form_end(delete_form) }}
             </li>
         </ul>
+        </div>
     </div>
 {% endblock %}
