@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/CompanyManagement.html">\CompanyManagement</a></li>
+                                                        <li><a href="../namespaces/CompanyManagementBundle.html">\CompanyManagementBundle</a></li>
+                                                        <li><a href="../namespaces/FOS.html">\FOS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">324</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-890365695"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-890365695" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-476154059"></a>
+                                <a href="../namespaces/CompanyManagement.html" style="margin-left: 30px; padding-left: 0">CompanyManagement</a>
+            </div>
+            <div id="namespace-476154059" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-616797332"></a>
+                                <a href="../namespaces/CompanyManagement.DataFixtures.html" style="margin-left: 30px; padding-left: 0">DataFixtures</a>
+            </div>
+            <div id="namespace-616797332" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-450650396"></a>
+                                <a href="../namespaces/CompanyManagement.DataFixtures.ORM.html" style="margin-left: 30px; padding-left: 0">ORM</a>
+            </div>
+            <div id="namespace-450650396" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadAclData.html">LoadAclData</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadCompanyData.html">LoadCompanyData</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadDepartmentData.html">LoadDepartmentData</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadRoleData.html">LoadRoleData</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadUserData.html">LoadUserData</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagement.DataFixtures.ORM.LoadWorkTimeLogData.html">LoadWorkTimeLogData</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2102158783"></a>
+                                <a href="../namespaces/CompanyManagementBundle.html" style="margin-left: 30px; padding-left: 0">CompanyManagementBundle</a>
+            </div>
+            <div id="namespace-2102158783" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1178617340"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Controller.html" style="margin-left: 30px; padding-left: 0">Controller</a>
+            </div>
+            <div id="namespace-1178617340" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.AclController.html">AclController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.CompanyController.html">CompanyController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.DefaultController.html">DefaultController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.DepartmentController.html">DepartmentController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.HomeController.html">HomeController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.RoleController.html">RoleController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.UserController.html">UserController</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Controller.WorkTimeLogController.html">WorkTimeLogController</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-716219162"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Entity.html" style="margin-left: 30px; padding-left: 0">Entity</a>
+            </div>
+            <div id="namespace-716219162" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.Acl.html">Acl</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.Company.html">Company</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.Department.html">Department</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.Role.html">Role</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.User.html">User</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Entity.WorkTimeLog.html">WorkTimeLog</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1643872711"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Form.html" style="margin-left: 30px; padding-left: 0">Form</a>
+            </div>
+            <div id="namespace-1643872711" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.AclType.html">AclType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.ChangePasswordFormType.html">ChangePasswordFormType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.CompanyType.html">CompanyType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.DepartmentType.html">DepartmentType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.RegistrationType.html">RegistrationType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.RoleType.html">RoleType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.UserEditType.html">UserEditType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.UserType.html">UserType</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Form.WorkTimeLogType.html">WorkTimeLogType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-133473074"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Libraries.html" style="margin-left: 30px; padding-left: 0">Libraries</a>
+            </div>
+            <div id="namespace-133473074" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-256813101"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Libraries.Regexp.html" style="margin-left: 30px; padding-left: 0">Regexp</a>
+            </div>
+            <div id="namespace-256813101" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Libraries.Regexp.RegexpGeneratorService.html">RegexpGeneratorService</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Libraries.Regexp.RegexpService.html">RegexpService</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Libraries.AclService.html">AclService</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2016458157"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Listener.html" style="margin-left: 30px; padding-left: 0">Listener</a>
+            </div>
+            <div id="namespace-2016458157" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Listener.LoginListener.html">LoginListener</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1023275419"></a>
+                                <a href="../namespaces/CompanyManagementBundle.Repository.html" style="margin-left: 30px; padding-left: 0">Repository</a>
+            </div>
+            <div id="namespace-1023275419" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.AclRepository.html">AclRepository</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.CompanyRepository.html">CompanyRepository</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.DepartmentRepository.html">DepartmentRepository</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.RoleRepository.html">RoleRepository</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.UserRepository.html">UserRepository</a></li>
+                                                    <li class="class"><a href="../classes/CompanyManagementBundle.Repository.WorkTimeLogRepository.html">WorkTimeLogRepository</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/CompanyManagementBundle.CompanyManagementBundle.html">CompanyManagementBundle</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1380917211"></a>
+                                <a href="../namespaces/FOS.html" style="margin-left: 30px; padding-left: 0">FOS</a>
+            </div>
+            <div id="namespace-1380917211" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1911864081"></a>
+                                <a href="../namespaces/FOS.UserBundle.html" style="margin-left: 30px; padding-left: 0">UserBundle</a>
+            </div>
+            <div id="namespace-1911864081" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1816724651"></a>
+                                <a href="../namespaces/FOS.UserBundle.Form.html" style="margin-left: 30px; padding-left: 0">Form</a>
+            </div>
+            <div id="namespace-1816724651" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-600302763"></a>
+                                <a href="../namespaces/FOS.UserBundle.Form.DataTransformer.html" style="margin-left: 30px; padding-left: 0">DataTransformer</a>
+            </div>
+            <div id="namespace-600302763" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.DataTransformer.UserToUsernameTransformer.html">UserToUsernameTransformer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-766378391"></a>
+                                <a href="../namespaces/FOS.UserBundle.Form.Factory.html" style="margin-left: 30px; padding-left: 0">Factory</a>
+            </div>
+            <div id="namespace-766378391" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/FOS.UserBundle.Form.Factory.FactoryInterface.html">FactoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Factory.FormFactory.html">FormFactory</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1423442581"></a>
+                                <a href="../namespaces/FOS.UserBundle.Form.Type.html" style="margin-left: 30px; padding-left: 0">Type</a>
+            </div>
+            <div id="namespace-1423442581" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.ChangePasswordFormType.html">ChangePasswordFormType</a></li>
+                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.GroupFormType.html">GroupFormType</a></li>
+                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.ProfileFormType.html">ProfileFormType</a></li>
+                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.RegistrationFormType.html">RegistrationFormType</a></li>
+                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.ResettingFormType.html">ResettingFormType</a></li>
+                                                    <li class="class"><a href="../classes/FOS.UserBundle.Form.Type.UsernameFormType.html">UsernameFormType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/RegexpGeneratorServiceTest.html">RegexpGeneratorServiceTest</a></li>
+                                                    <li class="class"><a href="../classes/RegexpServiceTest.html">RegexpServiceTest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/CompanyManagementBundle.Entity.html">\CompanyManagementBundle\Entity</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\CompanyManagementBundle\Entity</small>User</h1>
+                    <p><em>User</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getId" class="">getId()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setFirstName" class="">setFirstName()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getFirstName" class="">getFirstName()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setLastName" class="">setLastName()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getLastName" class="">getLastName()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setEmail" class="">setEmail()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getEmail" class="">getEmail()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setPassword" class="">setPassword()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getPassword" class="">getPassword()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setDateAdded" class="">setDateAdded()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getDateAdded" class="">getDateAdded()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setAddress" class="">setAddress()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getAddress" class="">getAddress()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setZipCode" class="">setZipCode()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getZipCode" class="">getZipCode()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setCity" class="">setCity()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getCity" class="">getCity()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setTelephone" class="">setTelephone()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getTelephone" class="">getTelephone()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setHourlyRate" class="">setHourlyRate()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getHourlyRate" class="">getHourlyRate()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setCompany" class="">setCompany()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getCompany" class="">getCompany()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_addWorkTimeLog" class="">addWorkTimeLog()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_removeWorkTimeLog" class="">removeWorkTimeLog()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getWorkTimeLogs" class="">getWorkTimeLogs()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setDepartment" class="">setDepartment()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getDepartment" class="">getDepartment()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setManagedDepartment" class="">setManagedDepartment()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getManagedDepartment" class="">getManagedDepartment()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setRole" class="">setRole()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getRole" class="">getRole()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method___toString" class="">__toString()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_addWorker" class="">addWorker()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_removeWorker" class="">removeWorker()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getWorkers" class="">getWorkers()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setBoss" class="">setBoss()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getBoss" class="">getBoss()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_addChild" class="">addChild()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_removeChild" class="">removeChild()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getChildren" class="">getChildren()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_setParent" class="">setParent()</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#method_getParent" class="">getParent()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_firstName" class="">$firstName</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_lastName" class="">$lastName</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_children" class="">$children</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_parent" class="">$parent</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_dateAdded" class="">$dateAdded</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_address" class="">$address</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_zipCode" class="">$zipCode</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_city" class="">$city</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_telephone" class="">$telephone</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_hourlyRate" class="">$hourlyRate</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_company" class="">$company</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_workTimeLogs" class="">$workTimeLogs</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_department" class="">$department</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_managedDepartment" class="">$managedDepartment</a><br />
+                                                                    <a href="../classes/CompanyManagementBundle.Entity.User.html#property_role" class="">$role</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Entity.User.html"><div class="path-wrapper">Entity/User.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper">\FOS\UserBundle\Model\User</div>
+                                                                                                    <div class="namespace-wrapper">\CompanyManagementBundle\Entity\User</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                ORM\Table
+                            </th>
+                            <td>
+                                                                    <p>(name=&quot;user&quot;)</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                ORM\Entity
+                            </th>
+                            <td>
+                                                                    <p>(repositoryClass=&quot;CompanyManagementBundle\Repository\UserRepository&quot;)</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$id</h3>
+                <pre class="signature">$id : integer</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;id&quot;, type=&quot;integer&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\Id
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\GeneratedValue
+                        </th>
+                        <td>
+                                                            <p>(strategy=&quot;AUTO&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_firstName" name="property_firstName" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$firstName</h3>
+                <pre class="signature">$firstName : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;first_name&quot;, type=&quot;string&quot;, length=30)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_lastName" name="property_lastName" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$lastName</h3>
+                <pre class="signature">$lastName : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;last_name&quot;, type=&quot;string&quot;, length=30)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_children" name="property_children" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$children</h3>
+                <pre class="signature">$children : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\OneToMany
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;User&quot;, mappedBy=&quot;parent&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_parent" name="property_parent" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$parent</h3>
+                <pre class="signature">$parent : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;User&quot;, inversedBy=&quot;children&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;parent_id&quot;, referencedColumnName=&quot;id&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_dateAdded" name="property_dateAdded" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$dateAdded</h3>
+                <pre class="signature">$dateAdded : \DateTime</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \DateTime
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;date_added&quot;, type=&quot;datetime&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_address" name="property_address" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$address</h3>
+                <pre class="signature">$address : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;address&quot;, type=&quot;string&quot;, length=255)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_zipCode" name="property_zipCode" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$zipCode</h3>
+                <pre class="signature">$zipCode : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;zip_code&quot;, type=&quot;string&quot;, length=30)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_city" name="property_city" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$city</h3>
+                <pre class="signature">$city : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;city&quot;, type=&quot;string&quot;, length=255)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_telephone" name="property_telephone" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$telephone</h3>
+                <pre class="signature">$telephone : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;telephone&quot;, type=&quot;string&quot;, length=255)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_hourlyRate" name="property_hourlyRate" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$hourlyRate</h3>
+                <pre class="signature">$hourlyRate : string</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\Column
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;hourly_rate&quot;, type=&quot;decimal&quot;, precision=10, scale=2)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_company" name="property_company" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$company</h3>
+                <pre class="signature">$company : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;Company&quot;, inversedBy=&quot;users&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;company_id&quot;, referencedColumnName=&quot;id&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_workTimeLogs" name="property_workTimeLogs" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$workTimeLogs</h3>
+                <pre class="signature">$workTimeLogs : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\OneToMany
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;WorkTimeLog&quot;, mappedBy=&quot;user&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_department" name="property_department" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$department</h3>
+                <pre class="signature">$department : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;Department&quot;, inversedBy=&quot;users&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;department_id&quot;, referencedColumnName=&quot;id&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_managedDepartment" name="property_managedDepartment" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$managedDepartment</h3>
+                <pre class="signature">$managedDepartment : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\OneToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;Department&quot;, inversedBy=&quot;boss&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_role" name="property_role" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$role</h3>
+                <pre class="signature">$role : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            ORM\ManyToOne
+                        </th>
+                        <td>
+                                                            <p>(targetEntity=&quot;Role&quot;, inversedBy=&quot;users&quot;)</p>
+                                                    </td>
+                    </tr>
+                                    <tr>
+                        <th>
+                            ORM\JoinColumn
+                        </th>
+                        <td>
+                                                            <p>(name=&quot;role_id&quot;, referencedColumnName=&quot;id&quot;)</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getId" name="method_getId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getId() : integer</pre>
+                <p><em>Get id</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setFirstName" name="method_setFirstName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setFirstName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setFirstName(string  <span class="argument">$firstName</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set firstName</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$firstName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFirstName" name="method_getFirstName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getFirstName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFirstName() : string</pre>
+                <p><em>Get firstName</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLastName" name="method_setLastName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLastName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLastName(string  <span class="argument">$lastName</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set lastName</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$lastName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLastName" name="method_getLastName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLastName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLastName() : string</pre>
+                <p><em>Get lastName</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEmail" name="method_setEmail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setEmail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEmail(string  <span class="argument">$email</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set email</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$email </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getEmail" name="method_getEmail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getEmail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getEmail() : string</pre>
+                <p><em>Get email</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPassword" name="method_setPassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPassword(string  <span class="argument">$password</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set password</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$password </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPassword" name="method_getPassword" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPassword()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPassword() : string</pre>
+                <p><em>Get password</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDateAdded" name="method_setDateAdded" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDateAdded()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDateAdded(\DateTime  <span class="argument">$dateAdded</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set dateAdded</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DateTime</td>
+                                <td>$dateAdded </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDateAdded" name="method_getDateAdded" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDateAdded()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDateAdded() : \DateTime</pre>
+                <p><em>Get dateAdded</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \DateTime
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setAddress" name="method_setAddress" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setAddress()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setAddress(string  <span class="argument">$address</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set address</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$address </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAddress" name="method_getAddress" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAddress()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAddress() : string</pre>
+                <p><em>Get address</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setZipCode" name="method_setZipCode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setZipCode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setZipCode(string  <span class="argument">$zipCode</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set zipCode</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$zipCode </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getZipCode" name="method_getZipCode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getZipCode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getZipCode() : string</pre>
+                <p><em>Get zipCode</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCity" name="method_setCity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCity(string  <span class="argument">$city</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set city</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$city </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCity" name="method_getCity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCity() : string</pre>
+                <p><em>Get city</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setTelephone" name="method_setTelephone" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setTelephone()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setTelephone(string  <span class="argument">$telephone</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set telephone</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$telephone </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getTelephone" name="method_getTelephone" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getTelephone()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getTelephone() : string</pre>
+                <p><em>Get telephone</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setHourlyRate" name="method_setHourlyRate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setHourlyRate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setHourlyRate(string  <span class="argument">$hourlyRate</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set hourlyRate</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$hourlyRate </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getHourlyRate" name="method_getHourlyRate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getHourlyRate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getHourlyRate() : string</pre>
+                <p><em>Get hourlyRate</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em>Constructor</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCompany" name="method_setCompany" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCompany()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCompany(\CompanyManagementBundle\Entity\Company  <span class="argument">$company = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set company</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.Company.html">\CompanyManagementBundle\Entity\Company</a></td>
+                                <td>$company </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCompany" name="method_getCompany" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCompany()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCompany() : \CompanyManagementBundle\Entity\Company</pre>
+                <p><em>Get company</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.Company.html">\CompanyManagementBundle\Entity\Company</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addWorkTimeLog" name="method_addWorkTimeLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addWorkTimeLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addWorkTimeLog(\CompanyManagementBundle\Entity\WorkTimeLog  <span class="argument">$workTimeLog</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Add workTimeLog</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.WorkTimeLog.html">\CompanyManagementBundle\Entity\WorkTimeLog</a></td>
+                                <td>$workTimeLog </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeWorkTimeLog" name="method_removeWorkTimeLog" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeWorkTimeLog()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeWorkTimeLog(\CompanyManagementBundle\Entity\WorkTimeLog  <span class="argument">$workTimeLog</span>) </pre>
+                <p><em>Remove workTimeLog</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.WorkTimeLog.html">\CompanyManagementBundle\Entity\WorkTimeLog</a></td>
+                                <td>$workTimeLog </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getWorkTimeLogs" name="method_getWorkTimeLogs" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getWorkTimeLogs()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getWorkTimeLogs() : \Doctrine\Common\Collections\Collection</pre>
+                <p><em>Get workTimeLogs</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Doctrine\Common\Collections\Collection
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setDepartment" name="method_setDepartment" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setDepartment()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setDepartment(\CompanyManagementBundle\Entity\Department  <span class="argument">$department = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set department</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.Department.html">\CompanyManagementBundle\Entity\Department</a></td>
+                                <td>$department </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getDepartment" name="method_getDepartment" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getDepartment()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getDepartment() : \CompanyManagementBundle\Entity\Department</pre>
+                <p><em>Get department</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.Department.html">\CompanyManagementBundle\Entity\Department</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setManagedDepartment" name="method_setManagedDepartment" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setManagedDepartment()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setManagedDepartment(\CompanyManagementBundle\Entity\Department  <span class="argument">$managedDepartment = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set managedDepartment</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.Department.html">\CompanyManagementBundle\Entity\Department</a></td>
+                                <td>$managedDepartment </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getManagedDepartment" name="method_getManagedDepartment" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getManagedDepartment()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getManagedDepartment() : \CompanyManagementBundle\Entity\Department</pre>
+                <p><em>Get managedDepartment</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.Department.html">\CompanyManagementBundle\Entity\Department</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setRole" name="method_setRole" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setRole()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setRole(\CompanyManagementBundle\Entity\Role  <span class="argument">$role = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set role</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.Role.html">\CompanyManagementBundle\Entity\Role</a></td>
+                                <td>$role </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRole" name="method_getRole" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRole()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRole() : \CompanyManagementBundle\Entity\Role</pre>
+                <p><em>Get role</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.Role.html">\CompanyManagementBundle\Entity\Role</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___toString" name="method___toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__toString() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addWorker" name="method_addWorker" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addWorker()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addWorker(\CompanyManagementBundle\Entity\User  <span class="argument">$worker</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Add worker</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$worker </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeWorker" name="method_removeWorker" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeWorker()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeWorker(\CompanyManagementBundle\Entity\User  <span class="argument">$worker</span>) </pre>
+                <p><em>Remove worker</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$worker </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getWorkers" name="method_getWorkers" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getWorkers()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getWorkers() : \Doctrine\Common\Collections\Collection</pre>
+                <p><em>Get workers</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Doctrine\Common\Collections\Collection
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setBoss" name="method_setBoss" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setBoss()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setBoss(\CompanyManagementBundle\Entity\User  <span class="argument">$boss = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set boss</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$boss </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getBoss" name="method_getBoss" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getBoss()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getBoss() : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Get boss</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addChild" name="method_addChild" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addChild()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addChild(\CompanyManagementBundle\Entity\User  <span class="argument">$child</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Add child</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$child </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_removeChild" name="method_removeChild" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">removeChild()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">removeChild(\CompanyManagementBundle\Entity\User  <span class="argument">$child</span>) </pre>
+                <p><em>Remove child</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$child </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getChildren" name="method_getChildren" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getChildren()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getChildren() : \Doctrine\Common\Collections\Collection</pre>
+                <p><em>Get children</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Doctrine\Common\Collections\Collection
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setParent" name="method_setParent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setParent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setParent(\CompanyManagementBundle\Entity\User  <span class="argument">$parent = null</span>) : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Set parent</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a></td>
+                                <td>$parent </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getParent" name="method_getParent" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getParent()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getParent() : \CompanyManagementBundle\Entity\User</pre>
+                <p><em>Get parent</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/CompanyManagementBundle.Entity.User.html">\CompanyManagementBundle\Entity\User</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">User.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Entity/User.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/CompanyManagement.html">\CompanyManagement</a></li>
+                                                                            <li><a href="../namespaces/CompanyManagementBundle.html">\CompanyManagementBundle</a></li>
+                                                                            <li><a href="../namespaces/FOS.html">\FOS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 6th, 2016 at 22:22.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

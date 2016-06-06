@@ -31,6 +31,12 @@ class UserController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * Show paginated user list
+     */
     public function listAction(Request $request) {
 
         $em = $this->getDoctrine()->getManager();
@@ -163,6 +169,12 @@ class UserController extends Controller
         ;
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     *
+     * Show expanded user informations
+     */
     public function expandAction(Request $request)
     {
         $user_id = trim($request->request->get('user_id'));
