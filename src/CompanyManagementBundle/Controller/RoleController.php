@@ -12,14 +12,14 @@ use CompanyManagementBundle\Form\RoleType;
  * Role controller.
  *
  */
-class RoleController extends Controller
-{
+class RoleController extends Controller {
+
     /**
      * Lists all Role entities.
      *
      */
-    public function indexAction()
-    {
+    public function indexAction() {
+
         RoleType::setContainer($this->container);
         $em = $this->getDoctrine()->getManager();
 
@@ -34,8 +34,8 @@ class RoleController extends Controller
      * Creates a new Role entity.
      *
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
+
         $role = new Role();
         RoleType::setContainer($this->container);
 
@@ -43,6 +43,20 @@ class RoleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $allowedActions = array();
+            foreach ($form->getIterator() as $key => $item) {
+
+                if ($key == 'title' || $key == 'description' || $key == 'name') {
+                    continue;
+                }
+                if($item->getViewData()) {
+                    $allowedActions[] = $key;
+                }
+            }
+
+            $role->setAllowedActions(serialize($allowedActions));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($role);
             $em->flush();
@@ -60,8 +74,8 @@ class RoleController extends Controller
      * Finds and displays a Role entity.
      *
      */
-    public function showAction(Role $role)
-    {
+    public function showAction(Role $role) {
+
         RoleType::setContainer($this->container);
         $deleteForm = $this->createDeleteForm($role);
 
@@ -75,14 +89,29 @@ class RoleController extends Controller
      * Displays a form to edit an existing Role entity.
      *
      */
-    public function editAction(Request $request, Role $role)
-    {
+    public function editAction(Request $request, Role $role) {
+
         RoleType::setContainer($this->container);
         $deleteForm = $this->createDeleteForm($role);
         $editForm = $this->createForm('CompanyManagementBundle\Form\RoleType', $role);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            $allowedActions = array();
+            foreach ($editForm->getIterator() as $key => $item) {
+
+                if ($key == 'title' || $key == 'description' || $key == 'name') {
+                    continue;
+                }
+                if($item->getViewData()) {
+                    $allowedActions[] = $key;
+                }
+            }
+
+            $role->setAllowedActions(serialize($allowedActions));
+
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($role);
             $em->flush();
@@ -101,8 +130,8 @@ class RoleController extends Controller
      * Deletes a Role entity.
      *
      */
-    public function deleteAction(Request $request, Role $role)
-    {
+    public function deleteAction(Request $request, Role $role) {
+
         RoleType::setContainer($this->container);
         $form = $this->createDeleteForm($role);
         $form->handleRequest($request);
@@ -123,13 +152,13 @@ class RoleController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Role $role)
-    {
+    private function createDeleteForm(Role $role) {
+
         RoleType::setContainer($this->container);
+
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('role_delete', array('id' => $role->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
