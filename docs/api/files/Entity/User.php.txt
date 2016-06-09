@@ -117,15 +117,16 @@ class User extends BaseUser
     protected $workTimeLogs;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Department", inversedBy="users")
-     * @ORM\JoinColumn(name="department_id", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="department", type="string", nullable=true)
      */
     protected $department;
 
     /**
-     * @var
+     * @var string
      *
-     * @ORM\OneToOne(targetEntity="Department", inversedBy="boss")
+     * @ORM\Column(name="managedDepartment", type="string", nullable=true)
      */
     protected $managedDepartment;
 
@@ -454,11 +455,11 @@ class User extends BaseUser
     /**
      * Set department
      *
-     * @param \CompanyManagementBundle\Entity\Department $department
+     * @param string $department
      *
      * @return User
      */
-    public function setDepartment(\CompanyManagementBundle\Entity\Department $department = null)
+    public function setDepartment($department = null)
     {
         $this->department = $department;
 
@@ -468,7 +469,7 @@ class User extends BaseUser
     /**
      * Get department
      *
-     * @return \CompanyManagementBundle\Entity\Department
+     * @return string
      */
     public function getDepartment()
     {
@@ -478,11 +479,11 @@ class User extends BaseUser
     /**
      * Set managedDepartment
      *
-     * @param \CompanyManagementBundle\Entity\Department $managedDepartment
+     * @param string $managedDepartment
      *
      * @return User
      */
-    public function setManagedDepartment(\CompanyManagementBundle\Entity\Department $managedDepartment = null)
+    public function setManagedDepartment($managedDepartment = null)
     {
         $this->managedDepartment = $managedDepartment;
 
@@ -492,7 +493,7 @@ class User extends BaseUser
     /**
      * Get managedDepartment
      *
-     * @return \CompanyManagementBundle\Entity\Department
+     * @return string
      */
     public function getManagedDepartment()
     {

@@ -48,10 +48,10 @@ class LoginListener implements EventSubscriberInterface {
 
         $user = $this->getUser();
 
-        if(!$aclService->hasAccess($user, $event->getRequest())) {
-            $url = $this->router->generate('company_management_homepage');
-            $event->setResponse(new RedirectResponse($url));
-        }
+//        if(!$aclService->hasAccess($user, $event->getRequest())) {
+//            $url = $this->router->generate('company_management_homepage');
+//            $event->setResponse(new RedirectResponse($url));
+//        }
     }
 
     public function getUser() {
