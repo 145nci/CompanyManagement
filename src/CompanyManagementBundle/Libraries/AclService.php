@@ -57,13 +57,7 @@ class AclService {
             return false;
         }
 
-        $acl = $role->getAcl();
-
-        if (!isset($acl) || empty($acl) || !is_object($acl)) {
-            return false;
-        }
-
-        $actions = @unserialize($user->getRole()->getAcl()->getAllowedActions());
+        $actions = @unserialize($user->getRole()->getAllowedActions());
 
         if (!isset($actions) || empty($actions) || !is_array($actions)) {
             return false;

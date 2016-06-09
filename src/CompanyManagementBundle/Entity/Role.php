@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="role")
  * @ORM\Entity(repositoryClass="CompanyManagementBundle\Repository\RoleRepository")
  */
-class Role
-{
+class Role {
+
     /**
      * @var int
      *
@@ -43,6 +43,13 @@ class Role
     private $description;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="allowedActions", type="text", nullable=false)
+     */
+    private $allowedActions;
+
+    /**
      * @var
      *
      * @ORM\OneToMany(targetEntity="User", mappedBy="role")
@@ -50,20 +57,36 @@ class Role
     protected $users;
 
     /**
-     * @var
+     * Set allowedActions
      *
-     * @ORM\OneToOne(targetEntity="Acl", mappedBy="role")
-     * @ORM\JoinColumn(name="acl_id", referencedColumnName="id")
+     * @param string $allowedActions
+     *
+     * @return Acl
      */
-    protected $acl;
+    public function setAllowedActions($allowedActions) {
+
+        $this->allowedActions = $allowedActions;
+
+        return $this;
+    }
+
+    /**
+     * Get allowedActions
+     *
+     * @return string
+     */
+    public function getAllowedActions() {
+
+        return $this->allowedActions;
+    }
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
+
         return $this->id;
     }
 
@@ -74,8 +97,8 @@ class Role
      *
      * @return Role
      */
-    public function setName($name)
-    {
+    public function setName($name) {
+
         $this->name = $name;
 
         return $this;
@@ -86,8 +109,8 @@ class Role
      *
      * @return string
      */
-    public function getName()
-    {
+    public function getName() {
+
         return $this->name;
     }
 
@@ -98,8 +121,8 @@ class Role
      *
      * @return Role
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
+
         $this->title = $title;
 
         return $this;
@@ -110,8 +133,8 @@ class Role
      *
      * @return string
      */
-    public function getTitle()
-    {
+    public function getTitle() {
+
         return $this->title;
     }
 
@@ -122,8 +145,8 @@ class Role
      *
      * @return Role
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
+
         $this->description = $description;
 
         return $this;
@@ -134,15 +157,16 @@ class Role
      *
      * @return string
      */
-    public function getDescription()
-    {
+    public function getDescription() {
+
         return $this->description;
     }
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
+
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -153,8 +177,8 @@ class Role
      *
      * @return Role
      */
-    public function addUser(\CompanyManagementBundle\Entity\User $user)
-    {
+    public function addUser(\CompanyManagementBundle\Entity\User $user) {
+
         $this->users[] = $user;
 
         return $this;
@@ -165,8 +189,8 @@ class Role
      *
      * @param \CompanyManagementBundle\Entity\User $user
      */
-    public function removeUser(\CompanyManagementBundle\Entity\User $user)
-    {
+    public function removeUser(\CompanyManagementBundle\Entity\User $user) {
+
         $this->users->removeElement($user);
     }
 
@@ -175,36 +199,13 @@ class Role
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUsers()
-    {
+    public function getUsers() {
+
         return $this->users;
     }
 
-    /**
-     * Set acl
-     *
-     * @param \CompanyManagementBundle\Entity\Acl $acl
-     *
-     * @return Role
-     */
-    public function setAcl(\CompanyManagementBundle\Entity\Acl $acl = null)
-    {
-        $this->acl = $acl;
+    public function __toString() {
 
-        return $this;
-    }
-
-    /**
-     * Get acl
-     *
-     * @return \CompanyManagementBundle\Entity\Acl
-     */
-    public function getAcl()
-    {
-        return $this->acl;
-    }
-
-    public function __toString(){
         return $this->name;
     }
 }

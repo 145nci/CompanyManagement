@@ -20,6 +20,7 @@ class RoleController extends Controller
      */
     public function indexAction()
     {
+        RoleType::setContainer($this->container);
         $em = $this->getDoctrine()->getManager();
 
         $roles = $em->getRepository('CompanyManagementBundle:Role')->findAll();
@@ -36,6 +37,8 @@ class RoleController extends Controller
     public function newAction(Request $request)
     {
         $role = new Role();
+        RoleType::setContainer($this->container);
+
         $form = $this->createForm('CompanyManagementBundle\Form\RoleType', $role);
         $form->handleRequest($request);
 
@@ -59,6 +62,7 @@ class RoleController extends Controller
      */
     public function showAction(Role $role)
     {
+        RoleType::setContainer($this->container);
         $deleteForm = $this->createDeleteForm($role);
 
         return $this->render('CompanyManagementBundle:Role:show.html.twig', array(
@@ -73,6 +77,7 @@ class RoleController extends Controller
      */
     public function editAction(Request $request, Role $role)
     {
+        RoleType::setContainer($this->container);
         $deleteForm = $this->createDeleteForm($role);
         $editForm = $this->createForm('CompanyManagementBundle\Form\RoleType', $role);
         $editForm->handleRequest($request);
@@ -98,6 +103,7 @@ class RoleController extends Controller
      */
     public function deleteAction(Request $request, Role $role)
     {
+        RoleType::setContainer($this->container);
         $form = $this->createDeleteForm($role);
         $form->handleRequest($request);
 
@@ -119,6 +125,7 @@ class RoleController extends Controller
      */
     private function createDeleteForm(Role $role)
     {
+        RoleType::setContainer($this->container);
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('role_delete', array('id' => $role->getId())))
             ->setMethod('DELETE')
